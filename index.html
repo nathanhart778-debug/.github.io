@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alex Morgan — ServiceNow Administrator</title>
+  <title>Nathan Hart — ServiceNow Administrator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
@@ -28,7 +28,6 @@
     }
     .portfolio { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-    /* NAV */
     .nav {
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.2rem 0;
@@ -46,7 +45,6 @@
     }
     .nav-links a:hover { color: var(--sn-teal); }
 
-    /* HERO */
     .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--sn-border); }
     .hero-eyebrow {
       font-family: 'DM Mono', monospace; font-size: 0.72rem;
@@ -57,7 +55,7 @@
       line-height: 1.1; color: #f0f6f4; margin-bottom: 0.6rem;
     }
     .hero-name em { font-style: italic; color: var(--sn-teal); }
-    .hero-subtitle { font-size: 1rem; color: var(--sn-muted); max-width: 440px; margin-bottom: 1.8rem; }
+    .hero-subtitle { font-size: 1rem; color: var(--sn-muted); max-width: 460px; margin-bottom: 1.8rem; }
     .hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
     .badge {
       font-family: 'DM Mono', monospace; font-size: 0.7rem;
@@ -65,6 +63,7 @@
       border: 0.5px solid var(--sn-teal); color: var(--sn-teal); letter-spacing: 0.04em;
     }
     .badge.filled { background: var(--sn-teal); color: var(--sn-dark); }
+    .badge.amber { border-color: #f0a050; color: #f0a050; }
     .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
@@ -77,7 +76,6 @@
     .btn-ghost { background: transparent; color: var(--sn-teal); border: 0.5px solid var(--sn-teal); }
     .btn-ghost:hover { background: rgba(0, 200, 160, 0.08); }
 
-    /* SECTIONS */
     .section { padding: 3rem 0; border-bottom: 0.5px solid var(--sn-border); }
     .section-label {
       font-family: 'DM Mono', monospace; font-size: 0.68rem;
@@ -86,7 +84,6 @@
     }
     .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--sn-border); }
 
-    /* CERT CARDS */
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
     .cert-card {
       background: var(--sn-card); border: 0.5px solid var(--sn-border);
@@ -99,26 +96,33 @@
     .cert-status.earned { color: var(--sn-teal); }
     .cert-status.progress { color: #f0a050; }
 
-    /* PROJECTS */
-    .project-card {
+    .badges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+    .badge-card {
       background: var(--sn-card); border: 0.5px solid var(--sn-border);
-      border-radius: 10px; padding: 1.3rem 1.5rem; margin-bottom: 14px;
-      transition: border-color 0.2s;
+      border-radius: 8px; padding: 0.8rem 1rem; transition: border-color 0.2s;
     }
-    .project-card:hover { border-color: var(--sn-teal); }
-    .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.5rem; gap: 1rem; }
-    .project-title { font-weight: 500; font-size: 0.95rem; color: #f0f6f4; }
-    .project-tag {
-      font-family: 'DM Mono', monospace; font-size: 0.62rem;
-      padding: 3px 9px; border-radius: 4px;
-      background: rgba(0, 200, 160, 0.1); color: var(--sn-teal);
-      border: 0.5px solid var(--sn-border); white-space: nowrap; flex-shrink: 0;
-    }
-    .project-desc { font-size: 0.84rem; color: var(--sn-muted); margin-bottom: 0.75rem; line-height: 1.65; }
-    .project-outcome { font-size: 0.8rem; color: #a0c8b8; font-style: italic; }
-    .project-outcome::before { content: '↳ '; color: var(--sn-teal); font-style: normal; }
+    .badge-card:hover { border-color: var(--sn-teal); }
+    .badge-name { font-size: 0.8rem; color: #c8ddd6; margin-bottom: 0.25rem; font-weight: 500; }
+    .badge-date { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--sn-muted); }
 
-    /* SKILLS */
+    .journey-bar {
+      background: var(--sn-card); border: 0.5px solid var(--sn-border);
+      border-radius: 10px; padding: 1.4rem; margin-bottom: 1.5rem;
+    }
+    .journey-title { font-size: 0.85rem; font-weight: 500; color: #e8f0ee; margin-bottom: 1rem; }
+    .journey-steps { display: flex; align-items: center; gap: 0; }
+    .journey-step { flex: 1; text-align: center; }
+    .journey-step-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.04em; margin-top: 0.4rem; }
+    .journey-step-label.done { color: var(--sn-teal); }
+    .journey-step-label.active { color: #f0a050; }
+    .journey-step-label.next { color: var(--sn-muted); }
+    .step-dot { width: 12px; height: 12px; border-radius: 50%; margin: 0 auto; }
+    .step-dot.done { background: var(--sn-teal); }
+    .step-dot.active { background: #f0a050; box-shadow: 0 0 0 3px rgba(240,160,80,0.2); }
+    .step-dot.next { background: var(--sn-muted); opacity: 0.4; }
+    .step-line { height: 1px; flex: 0.3; background: var(--sn-border); margin-bottom: 1.2rem; }
+    .step-line.done { background: var(--sn-teal); }
+
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
     .skill-item {
       background: var(--sn-card); border: 0.5px solid var(--sn-border);
@@ -128,11 +132,17 @@
     .skill-bar { height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; }
     .skill-fill { height: 100%; background: var(--sn-teal); border-radius: 2px; }
 
-    /* ABOUT */
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 1.5rem; }
+    .stat-card {
+      background: var(--sn-card); border: 0.5px solid var(--sn-border);
+      border-radius: 8px; padding: 1rem; text-align: center;
+    }
+    .stat-number { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--sn-teal); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.75rem; color: var(--sn-muted); }
+
     .about-text { font-size: 0.92rem; color: #a8c4bc; line-height: 1.85; max-width: 580px; }
     .about-text strong { color: #e8f0ee; font-weight: 500; }
 
-    /* CONTACT */
     .contact-row { display: flex; flex-wrap: wrap; gap: 12px; }
     .contact-link {
       display: flex; align-items: center; gap: 8px;
@@ -144,7 +154,6 @@
     .contact-link:hover { border-color: var(--sn-teal); color: var(--sn-teal); }
     .contact-link i { font-size: 16px; }
 
-    /* FOOTER */
     footer {
       padding: 2rem 0 0; text-align: center;
       font-family: 'DM Mono', monospace; font-size: 0.65rem;
@@ -154,134 +163,174 @@
     @media (max-width: 600px) {
       .hero-name { font-size: 2.2rem; }
       .nav-links { gap: 1rem; }
+      .stat-row { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
 </head>
 <body>
-  <div class="portfolio">
+<div class="portfolio">
 
-    <nav class="nav">
-      <span class="nav-logo">Alex Morgan</span>
-      <div class="nav-links">
-        <a href="#certs">Certs</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+  <nav class="nav">
+    <span class="nav-logo">Nathan Hart</span>
+    <div class="nav-links">
+      <a href="#credentials">Creds</a>
+      <a href="#badges">Badges</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <section class="hero">
-      <p class="hero-eyebrow">ServiceNow Administrator</p>
-      <h1 class="hero-name">Building workflows<br>that <em>actually work.</em></h1>
-      <p class="hero-subtitle">ITSM specialist focused on automation, service delivery, and clean platform architecture.</p>
-      <div class="hero-badges">
-        <span class="badge filled">CSA Certified</span>
-        <span class="badge">Oxford, UK</span>
-        <span class="badge">Open to roles</span>
-      </div>
-      <div class="cta-row">
-        <a href="#projects" class="btn btn-primary"><i class="ti ti-layout-grid"></i> View projects</a>
-        <a href="#contact" class="btn btn-ghost"><i class="ti ti-mail"></i> Get in touch</a>
-      </div>
-    </section>
+  <section class="hero">
+    <p class="hero-eyebrow">ServiceNow Administrator</p>
+    <h1 class="hero-name">Building platforms<br>that <em>drive change.</em></h1>
+    <p class="hero-subtitle">ServiceNow professional at Cox Automotive UK Ltd, focused on platform administration, automation, and the AI System Administrator career path.</p>
+    <div class="hero-badges">
+      <span class="badge filled">Now Certified</span>
+      <span class="badge">Cox Automotive UK</span>
+      <span class="badge">17 Skills Earned</span>
+      <span class="badge amber">Pro AI Admin — In Progress</span>
+    </div>
+    <div class="cta-row">
+      <a href="#credentials" class="btn btn-primary"><i class="ti ti-award"></i> My credentials</a>
+      <a href="#contact" class="btn btn-ghost"><i class="ti ti-mail"></i> Get in touch</a>
+    </div>
+  </section>
 
-    <section class="section" id="certs">
-      <p class="section-label">Credentials</p>
-      <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-icon">🎯</div>
-          <div class="cert-title">Certified System Administrator</div>
-          <div class="cert-status earned">✓ Earned — 2024</div>
+  <section class="section">
+    <p class="section-label">Achievement summary</p>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Credential</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">17</div>
+        <div class="stat-label">Skills earned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10</div>
+        <div class="stat-label">Badges</div>
+      </div>
+    </div>
+
+    <div class="journey-bar">
+      <div class="journey-title">AI System Administrator career journey</div>
+      <div class="journey-steps">
+        <div class="journey-step">
+          <div class="step-dot done"></div>
+          <div class="journey-step-label done">Associate ✓</div>
         </div>
-        <div class="cert-card">
-          <div class="cert-icon">⚙️</div>
-          <div class="cert-title">ITSM Micro-certification</div>
-          <div class="cert-status earned">✓ Earned — 2024</div>
+        <div class="step-line done"></div>
+        <div class="journey-step">
+          <div class="step-dot active"></div>
+          <div class="journey-step-label active">Professional ↻</div>
         </div>
-        <div class="cert-card">
-          <div class="cert-icon">🔧</div>
-          <div class="cert-title">Flow Designer</div>
-          <div class="cert-status earned">✓ Earned — 2024</div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-icon">🚀</div>
-          <div class="cert-title">Certified App Developer</div>
-          <div class="cert-status progress">In progress</div>
+        <div class="step-line"></div>
+        <div class="journey-step">
+          <div class="step-dot next"></div>
+          <div class="journey-step-label next">Expert</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="projects">
-      <p class="section-label">Projects</p>
-
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-title">IT Onboarding Automation</span>
-          <span class="project-tag">Flow Designer</span>
-        </div>
-        <p class="project-desc">Designed an end-to-end onboarding workflow that automatically provisions accounts, assigns hardware requests, and notifies stakeholders across IT, HR, and Facilities — eliminating manual handoffs.</p>
-        <p class="project-outcome">Reduced onboarding task completion from 3 days to under 4 hours.</p>
+  <section class="section" id="credentials">
+    <p class="section-label">Credentials</p>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-title">Welcome to ServiceNow</div>
+        <div class="cert-status earned">✓ Micro-cert — Feb 2024</div>
       </div>
-
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-title">Service Catalog Redesign</span>
-          <span class="project-tag">Service Portal</span>
-        </div>
-        <p class="project-desc">Rebuilt a fragmented service catalog into a structured, self-service portal. Created 14 catalog items with dynamic variable sets, approval workflows, and SLA tracking tied to priority tiers.</p>
-        <p class="project-outcome">Ticket deflection rate improved by 30% within the first month.</p>
+      <div class="cert-card">
+        <div class="cert-title">Associate AI System Administrator</div>
+        <div class="cert-status earned">✓ Completed — Apr 2026</div>
       </div>
-
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-title">CMDB Health Dashboard</span>
-          <span class="project-tag">Reporting</span>
-        </div>
-        <p class="project-desc">Built a real-time executive dashboard tracking CI completeness, stale records, and relationship accuracy. Wrote scheduled scripts to auto-flag orphaned CIs and notify asset owners.</p>
-        <p class="project-outcome">CMDB data quality score lifted from 61% to 89% over 6 weeks.</p>
+      <div class="cert-card">
+        <div class="cert-title">Professional AI System Administrator</div>
+        <div class="cert-status progress">In progress</div>
       </div>
-
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-title">Slack → ServiceNow Integration</span>
-          <span class="project-tag">REST API</span>
-        </div>
-        <p class="project-desc">Configured a REST integration allowing engineers to create and update incidents directly from Slack using slash commands, with bi-directional status sync and automatic assignment group routing.</p>
-        <p class="project-outcome">Mean time to acknowledge (MTTA) dropped by 40% for P1 incidents.</p>
+      <div class="cert-card">
+        <div class="cert-title">Certified System Administrator (CSA)</div>
+        <div class="cert-status progress">Next target</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="skills">
-      <p class="section-label">Technical skills</p>
-      <div class="skills-grid">
-        <div class="skill-item"><div class="skill-name">GlideScript / JS</div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Flow Designer</div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">REST / SOAP APIs</div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Business Rules</div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Client Scripts</div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">ACLs & Security</div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Update Sets</div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">CMDB / Discovery</div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+  <section class="section" id="badges">
+    <p class="section-label">Badges earned</p>
+    <div class="badges-grid">
+      <div class="badge-card">
+        <div class="badge-name">Platform Analytics Overview</div>
+        <div class="badge-date">May 2026</div>
       </div>
-    </section>
-
-    <section class="section" id="about">
-      <p class="section-label">About</p>
-      <p class="about-text">I'm a ServiceNow administrator with a background in <strong>IT service management</strong> and a passion for turning messy, manual processes into clean, automated workflows. I work out of Oxford and am currently pursuing my <strong>Certified Application Developer</strong> credential.<br><br>When I'm not in my PDI, I contribute to the <strong>ServiceNow Community</strong> and mentor peers preparing for the CSA exam.</p>
-    </section>
-
-    <section class="section" id="contact">
-      <p class="section-label">Contact</p>
-      <div class="contact-row">
-        <a href="mailto:alex@example.com" class="contact-link"><i class="ti ti-mail"></i> alex@example.com</a>
-        <a href="https://linkedin.com/in/yourprofile" class="contact-link"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/nathanhart778-debug" class="contact-link"><i class="ti ti-brand-github"></i> GitHub</a>
-        <a href="https://developer.servicenow.com" class="contact-link"><i class="ti ti-code"></i> PDI / Community</a>
+      <div class="badge-card">
+        <div class="badge-name">Create a Subflow</div>
+        <div class="badge-date">May 2026</div>
       </div>
-    </section>
+      <div class="badge-card">
+        <div class="badge-name">Create a Flow</div>
+        <div class="badge-date">Apr 2026</div>
+      </div>
+      <div class="badge-card">
+        <div class="badge-name">ServiceNow Administration Fundamentals</div>
+        <div class="badge-date">Apr 2026</div>
+      </div>
+      <div class="badge-card">
+        <div class="badge-name">Associate System Administrator</div>
+        <div class="badge-date">Apr 2026</div>
+      </div>
+      <div class="badge-card">
+        <div class="badge-name">Introduction to Generative AI</div>
+        <div class="badge-date">Mar 2025</div>
+      </div>
+      <div class="badge-card">
+        <div class="badge-name">Welcome to ServiceNow</div>
+        <div class="badge-date">Feb 2024</div>
+      </div>
+      <div class="badge-card">
+        <div class="badge-name">Get Started with Reports</div>
+        <div class="badge-date">Feb 2024</div>
+      </div>
+      <div class="badge-card">
+        <div class="badge-name">Introduction to Flows</div>
+        <div class="badge-date">Jan 2024</div>
+      </div>
+      <div class="badge-card">
+        <div class="badge-name">Create a Service Portal Theme</div>
+        <div class="badge-date">Jan 2024</div>
+      </div>
+    </div>
+  </section>
 
-    <footer>Built with ServiceNow expertise &amp; a little bit of caffeine</footer>
+  <section class="section" id="skills">
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-item"><div class="skill-name">Flow Designer</div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Flows &amp; State Flows</div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Triggers</div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Platform Analytics</div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Now Intelligence</div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">AI Agents</div><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">ServiceNow AI Platform</div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Data Privacy</div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+    </div>
+  </section>
 
-  </div>
+  <section class="section" id="about">
+    <p class="section-label">About</p>
+    <p class="about-text">I'm the <strong>Service Desk Manager</strong> at <strong>Cox Automotive UK Ltd</strong>, where I oversee day-to-day IT service operations. Outside of work, I'm dedicating my personal time to building expertise in ServiceNow — currently progressing through the <strong>AI System Administrator career journey</strong>, having completed the Associate level and working towards Professional.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-row">
+      <a href="mailto:nathanhart778@gmail.com" class="contact-link"><i class="ti ti-mail"></i> nathanhart778@gmail.com</a>
+      <a href="https://learning.servicenow.com/lxp?id=nl_public&user=nathanhart272838" class="contact-link"><i class="ti ti-code"></i> SN Learning Profile</a>
+    </div>
+  </section>
+
+  <footer>nathanhart.uk &nbsp;·&nbsp; ServiceNow professional &nbsp;·&nbsp; Cox Automotive UK</footer>
+
+</div>
 </body>
 </html>
