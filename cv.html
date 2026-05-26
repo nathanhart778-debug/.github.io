@@ -11,7 +11,6 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --sn-dark: #0b1120;
-      --sn-navy: #0e1e3a;
       --sn-teal: #00c8a0;
       --sn-teal-dim: #00a884;
       --sn-muted: #7a9ab0;
@@ -19,152 +18,89 @@
       --sn-card: rgba(14, 30, 58, 0.7);
     }
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--sn-dark);
-      color: #e8f0ee;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-    }
+    body { background: var(--sn-dark); color: #e8f0ee; font-family: 'Outfit', sans-serif; font-weight: 300; line-height: 1.7; }
     .portfolio { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-    /* NAV */
     .nav {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 0;
-      border-bottom: 0.5px solid var(--sn-border);
-      position: sticky; top: 0;
-      background: rgba(11, 17, 32, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 100;
+      padding: 1.2rem 0; border-bottom: 0.5px solid var(--sn-border);
+      position: sticky; top: 0; background: rgba(11,17,32,0.95);
+      backdrop-filter: blur(10px); z-index: 100;
     }
     .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--sn-teal); text-decoration: none; }
     .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a {
-      font-size: 0.78rem; color: var(--sn-muted); text-decoration: none;
-      letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s;
-    }
+    .nav-links a { font-size: 0.78rem; color: var(--sn-muted); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--sn-teal); }
 
-    /* HERO */
     .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--sn-border); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-    .hero-left {}
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.75rem;
-    }
-    .hero-name {
-      font-family: 'DM Serif Display', serif; font-size: 2.6rem;
-      line-height: 1.1; color: #f0f6f4; margin-bottom: 0.5rem;
-    }
+    .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .hero-name { font-family: 'DM Serif Display', serif; font-size: 2.6rem; line-height: 1.1; color: #f0f6f4; margin-bottom: 0.5rem; }
     .hero-subtitle { font-size: 0.95rem; color: var(--sn-muted); margin-bottom: 1.2rem; }
-    .hero-contact { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-    .hero-contact-item {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 0.8rem; color: #a8c4bc;
-    }
-    .hero-contact-item i { font-size: 14px; color: var(--sn-teal); }
+    .hero-contact { display: flex; flex-direction: column; gap: 0.4rem; }
+    .hero-contact-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: #a8c4bc; }
+    .hero-contact-item i { font-size: 15px; color: var(--sn-teal); }
     .hero-contact-item a { color: #a8c4bc; text-decoration: none; }
     .hero-contact-item a:hover { color: var(--sn-teal); }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 22px; font-family: 'Outfit', sans-serif;
-      font-size: 0.85rem; font-weight: 500; border-radius: 6px;
-      text-decoration: none; cursor: pointer; transition: background 0.2s;
-      border: none;
-    }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; border-radius: 6px; text-decoration: none; cursor: pointer; transition: background 0.2s; border: none; }
     .btn-primary { background: var(--sn-teal); color: var(--sn-dark); }
     .btn-primary:hover { background: var(--sn-teal-dim); }
 
-    /* SECTIONS */
     .section { padding: 2.5rem 0; border-bottom: 0.5px solid var(--sn-border); }
-    .section-label {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase;
-      margin-bottom: 1.6rem; display: flex; align-items: center; gap: 10px;
-    }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.6rem; display: flex; align-items: center; gap: 10px; }
     .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--sn-border); }
 
-    /* PROFILE SUMMARY */
-    .summary-text { font-size: 0.92rem; color: #a8c4bc; line-height: 1.85; max-width: 620px; }
+    .summary-text { font-size: 0.92rem; color: #a8c4bc; line-height: 1.85; }
     .summary-text strong { color: #e8f0ee; font-weight: 500; }
 
-    /* EXPERIENCE */
     .experience-item { margin-bottom: 2rem; }
     .experience-item:last-child { margin-bottom: 0; }
-    .exp-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem; }
+    .exp-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.2rem; }
     .exp-role { font-size: 0.95rem; font-weight: 500; color: #f0f6f4; }
-    .exp-dates {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      color: var(--sn-teal); letter-spacing: 0.05em; white-space: nowrap;
-    }
+    .exp-dates { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-teal); letter-spacing: 0.05em; white-space: nowrap; }
     .exp-company { font-size: 0.82rem; color: var(--sn-muted); margin-bottom: 0.75rem; }
     .exp-bullets { list-style: none; padding: 0; }
-    .exp-bullets li {
-      font-size: 0.84rem; color: #a8c4bc; line-height: 1.65;
-      padding-left: 1.1rem; position: relative; margin-bottom: 0.4rem;
-    }
+    .exp-bullets li { font-size: 0.84rem; color: #a8c4bc; line-height: 1.65; padding-left: 1.1rem; position: relative; margin-bottom: 0.4rem; }
     .exp-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--sn-teal); font-size: 0.7rem; top: 0.3rem; }
-    .exp-placeholder {
-      font-size: 0.84rem; color: var(--sn-muted); font-style: italic;
-      border-left: 2px solid var(--sn-border); padding-left: 1rem;
-    }
-
-    /* DIVIDER between jobs */
     .exp-divider { height: 0.5px; background: var(--sn-border); margin: 1.8rem 0; }
 
-    /* EDUCATION */
     .edu-item { margin-bottom: 1.5rem; }
     .edu-item:last-child { margin-bottom: 0; }
     .edu-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
     .edu-qual { font-size: 0.92rem; font-weight: 500; color: #f0f6f4; }
     .edu-dates { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-teal); letter-spacing: 0.05em; }
     .edu-institution { font-size: 0.82rem; color: var(--sn-muted); margin-top: 0.2rem; }
-    .edu-detail { font-size: 0.82rem; color: #a8c4bc; margin-top: 0.3rem; font-style: italic; }
+    .edu-bullets { list-style: none; padding: 0; margin-top: 0.5rem; }
+    .edu-bullets li { font-size: 0.83rem; color: #a8c4bc; padding-left: 1.1rem; position: relative; margin-bottom: 0.25rem; }
+    .edu-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--sn-teal); font-size: 0.7rem; top: 0.3rem; }
 
-    /* SKILLS */
     .skills-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .skills-group-title { font-size: 0.8rem; font-weight: 500; color: #e8f0ee; margin-bottom: 0.75rem; }
     .skill-tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .skill-tag {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      padding: 3px 10px; border-radius: 4px;
-      background: rgba(0, 200, 160, 0.08);
-      border: 0.5px solid var(--sn-border);
-      color: #a8c4bc; letter-spacing: 0.03em;
-    }
+    .skill-tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; padding: 3px 10px; border-radius: 4px; background: rgba(0,200,160,0.08); border: 0.5px solid var(--sn-border); color: #a8c4bc; letter-spacing: 0.03em; }
 
-    /* CERTIFICATIONS */
     .cert-list { display: flex; flex-direction: column; gap: 10px; }
-    .cert-row {
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--sn-card); border: 0.5px solid var(--sn-border);
-      border-radius: 8px; padding: 0.75rem 1rem;
-    }
+    .cert-row { display: flex; align-items: center; justify-content: space-between; background: var(--sn-card); border: 0.5px solid var(--sn-border); border-radius: 8px; padding: 0.75rem 1rem; flex-wrap: wrap; gap: 0.5rem; }
     .cert-name { font-size: 0.85rem; color: #e8f0ee; }
     .cert-meta { display: flex; align-items: center; gap: 1rem; }
     .cert-issuer { font-size: 0.75rem; color: var(--sn-muted); }
-    .cert-status-pill {
-      font-family: 'DM Mono', monospace; font-size: 0.62rem;
-      padding: 2px 8px; border-radius: 4px; letter-spacing: 0.04em;
-    }
+    .cert-status-pill { font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.04em; }
     .cert-status-pill.earned { background: rgba(0,200,160,0.12); color: var(--sn-teal); border: 0.5px solid rgba(0,200,160,0.3); }
     .cert-status-pill.progress { background: rgba(240,160,80,0.12); color: #f0a050; border: 0.5px solid rgba(240,160,80,0.3); }
 
-    /* REFERENCES */
     .ref-note { font-size: 0.85rem; color: var(--sn-muted); font-style: italic; }
 
-    /* PRINT */
     @media print {
       body { background: #fff; color: #111; }
       .nav, .btn, .no-print { display: none !important; }
       .portfolio { padding: 0; max-width: 100%; }
       .section { border-color: #ddd; }
-      .exp-bullets li { color: #333; }
-      .summary-text, .edu-detail, .exp-company { color: #555; }
+      .exp-bullets li, .edu-bullets li { color: #333; }
+      .summary-text, .exp-company, .edu-institution { color: #555; }
       .section-label { color: #0b8c6e; }
       .skill-tag { border-color: #ccc; color: #444; background: #f5f5f5; }
       .cert-row { background: #f9f9f9; border-color: #ddd; }
+      .hero-contact-item, .hero-subtitle { color: #444; }
+      .hero-name { color: #111; }
     }
 
     @media (max-width: 600px) {
@@ -189,41 +125,65 @@
     <div class="hero-left">
       <p class="hero-eyebrow">Curriculum Vitae</p>
       <h1 class="hero-name">Nathan Hart</h1>
-      <p class="hero-subtitle">Service Desk Manager &amp; ServiceNow Professional</p>
+      <p class="hero-subtitle">Enterprise Technology Team Leader &amp; ServiceNow Professional</p>
       <div class="hero-contact">
+        <span class="hero-contact-item"><i class="ti ti-phone"></i> 07590 227803</span>
         <span class="hero-contact-item"><i class="ti ti-mail"></i><a href="mailto:nathanhart778@gmail.com">nathanhart778@gmail.com</a></span>
-        <span class="hero-contact-item"><i class="ti ti-map-pin"></i> United Kingdom</span>
         <span class="hero-contact-item"><i class="ti ti-world"></i><a href="https://nathanhart.uk">nathanhart.uk</a></span>
       </div>
     </div>
     <button class="btn btn-primary no-print" onclick="window.print()"><i class="ti ti-download"></i> Download / Print</button>
   </section>
 
-  <!-- PROFILE SUMMARY -->
+  <!-- PROFILE -->
   <section class="section">
     <p class="section-label">Profile</p>
-    <p class="summary-text">
-      Experienced <strong>Service Desk Manager</strong> with a strong background in IT service management and team leadership.
-      Currently expanding into <strong>ServiceNow platform administration</strong> in my own time, with credentials in
-      Flow Designer, Platform Analytics, and the AI System Administrator career pathway.
-      Passionate about using technology to streamline service delivery and improve operational efficiency.
-    </p>
+    <p class="summary-text">A professional <strong>IT people manager</strong> with extensive experience in customer service and technical support. Efficient, highly focused, with a thorough and precise approach to resolving customer problems and driving service improvements. Proven track record of identifying root causes, resolving complex issues, and implementing preventative measures. Currently expanding into <strong>ServiceNow platform administration</strong> in my own time, with credentials in Flow Designer, Platform Analytics, and the AI System Administrator career pathway.</p>
+  </section>
+
+  <!-- KEY SKILLS -->
+  <section class="section">
+    <p class="section-label">Key Skills</p>
+    <div class="skills-two-col">
+      <div>
+        <div class="skills-group-title">Technical</div>
+        <div class="skill-tag-list">
+          <span class="skill-tag">Microsoft OS &amp; Applications</span>
+          <span class="skill-tag">Incident Management</span>
+          <span class="skill-tag">ServiceNow</span>
+          <span class="skill-tag">Flow Designer</span>
+          <span class="skill-tag">Platform Analytics</span>
+          <span class="skill-tag">ITSM</span>
+        </div>
+      </div>
+      <div>
+        <div class="skills-group-title">Management &amp; Service</div>
+        <div class="skill-tag-list">
+          <span class="skill-tag">People Management</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">SLA Management</span>
+          <span class="skill-tag">Service Improvement</span>
+          <span class="skill-tag">Escalation Handling</span>
+          <span class="skill-tag">Customer Service</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- EXPERIENCE -->
   <section class="section" id="experience">
-    <p class="section-label">Experience</p>
+    <p class="section-label">Employment History</p>
 
     <div class="experience-item">
       <div class="exp-header">
         <span class="exp-role">Service Desk Manager</span>
-        <span class="exp-dates">Month YYYY — Present</span>
+        <span class="exp-dates">April 2025 — Present</span>
       </div>
-      <div class="exp-company">Cox Automotive UK Ltd</div>
+      <div class="exp-company">Cox Automotive · Rothwell</div>
       <ul class="exp-bullets">
-        <li>Add a key responsibility or achievement here — e.g. managed a team of X service desk analysts</li>
-        <li>Add another bullet — e.g. oversaw incident management and SLA performance across the business</li>
-        <li>Add another bullet — e.g. implemented process improvements that reduced average resolution time by X%</li>
+        <li>Promoted to Service Desk Manager, taking on full ownership of service desk operations, team performance, and strategic service improvements.</li>
+        <li>Responsible for managing and developing the service desk team, ensuring consistent delivery against business SLAs and KPIs.</li>
+        <li>Acting as the senior escalation point for high priority and security incidents, communicating across the business and ensuring process and policy compliance.</li>
       </ul>
     </div>
 
@@ -231,63 +191,109 @@
 
     <div class="experience-item">
       <div class="exp-header">
-        <span class="exp-role">Previous Job Title</span>
-        <span class="exp-dates">Month YYYY — Month YYYY</span>
+        <span class="exp-role">Enterprise Technology Team Leader</span>
+        <span class="exp-dates">November 2021 — April 2025</span>
       </div>
-      <div class="exp-company">Previous Employer</div>
-      <p class="exp-placeholder">Add your responsibilities and achievements for this role here.</p>
+      <div class="exp-company">Cox Automotive · Rothwell</div>
+      <ul class="exp-bullets">
+        <li>Acting as a single point of contact for escalations, including senior stakeholders and Enterprise Technology staff.</li>
+        <li>Management and accountability of high priority and security incidents across the business, including communications to the entire organisation and ensuring process and policy compliance.</li>
+        <li>Responsible for managing the day-to-day operation of the Service Desk, driving quality improvements and delivering an enhanced service to end users.</li>
+        <li>Involved in multiple projects to improve service desk quality and introduce process efficiencies across the team.</li>
+      </ul>
     </div>
 
     <div class="exp-divider"></div>
 
     <div class="experience-item">
       <div class="exp-header">
-        <span class="exp-role">Previous Job Title</span>
-        <span class="exp-dates">Month YYYY — Month YYYY</span>
+        <span class="exp-role">Enterprise Technology Analyst</span>
+        <span class="exp-dates">October 2018 — November 2021</span>
       </div>
-      <div class="exp-company">Previous Employer</div>
-      <p class="exp-placeholder">Add your responsibilities and achievements for this role here.</p>
+      <div class="exp-company">Cox Automotive · Rothwell</div>
+      <ul class="exp-bullets">
+        <li>Documented and improved the onboarding and leaver process, aligning it with security best practices.</li>
+        <li>Managed a project to upgrade auction lane cameras across 15 sites, acting as point of contact with third parties and delivering the project in time for use during the Covid-19 pandemic.</li>
+        <li>Performed cost-saving tasks including identifying licences that could be amended, saving the business hundreds of pounds annually.</li>
+      </ul>
+    </div>
+
+    <div class="exp-divider"></div>
+
+    <div class="experience-item">
+      <div class="exp-header">
+        <span class="exp-role">Customer Service Technician</span>
+        <span class="exp-dates">March 2012 — October 2018</span>
+      </div>
+      <div class="exp-company">Fujitsu · Wakefield</div>
+      <ul class="exp-bullets">
+        <li>Supported a variety of customers across multiple contracts, ranging from public companies (G4S, STAR, Whitbread) to government departments (Cabinet Office, HM Treasury, Ministry of Housing, Planning Inspectorate).</li>
+        <li>Held Out of Hours shared services desk role supporting contracts from around the world. Vetted and cleared to a high government security standard.</li>
+        <li>First point of contact for all IT issues; explaining complex technical problems to non-technical customers clearly and professionally.</li>
+        <li>Identified and solved IT problems, logging them into the knowledge base to improve guidance and identify trends.</li>
+        <li>Assisted in developing technical and training documentation to support the wider team.</li>
+      </ul>
     </div>
 
   </section>
 
   <!-- EDUCATION -->
   <section class="section" id="education">
-    <p class="section-label">Education</p>
+    <p class="section-label">Education &amp; Qualifications</p>
 
     <div class="edu-item">
       <div class="edu-header">
-        <span class="edu-qual">Qualification name — e.g. A-Levels / Degree / BTEC</span>
-        <span class="edu-dates">YYYY — YYYY</span>
+        <span class="edu-qual">ITIL® v3 Foundation Certificate in IT Service Management</span>
       </div>
-      <div class="edu-institution">School / College / University name</div>
-      <div class="edu-detail">Add subjects, grades, or any relevant detail here.</div>
+      <div class="edu-institution">QA Education</div>
     </div>
 
     <div class="exp-divider"></div>
 
     <div class="edu-item">
       <div class="edu-header">
-        <span class="edu-qual">Qualification name</span>
-        <span class="edu-dates">YYYY — YYYY</span>
+        <span class="edu-qual">Service Desk Analyst (SDA®)</span>
       </div>
-      <div class="edu-institution">School / College name</div>
-      <div class="edu-detail">Add subjects or grades here.</div>
+      <div class="edu-institution">Service Desk Institute (SDI®)</div>
+    </div>
+
+    <div class="exp-divider"></div>
+
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-qual">IT Technician Qualifications</span>
+        <span class="edu-dates">September 2011 — March 2012</span>
+      </div>
+      <div class="edu-institution">Zeno's IT Academy</div>
+      <ul class="edu-bullets">
+        <li>CompTIA A+ Technician (220-701 and 220-702)</li>
+        <li>Microsoft Technology Associate (MTA) — Networking Fundamentals (98-366)</li>
+        <li>Windows Operating Systems Fundamentals (98-349)</li>
+        <li>Security Fundamentals (98-367)</li>
+        <li>Server Administration Fundamentals (98-365)</li>
+      </ul>
+    </div>
+
+    <div class="exp-divider"></div>
+
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-qual">A-Levels</span>
+        <span class="edu-dates">September 2009 — June 2011</span>
+      </div>
+      <div class="edu-institution">Garforth Academy Sixth Form</div>
+      <ul class="edu-bullets">
+        <li>Information Technology ×2</li>
+        <li>Media Studies</li>
+      </ul>
     </div>
 
   </section>
 
   <!-- CERTIFICATIONS -->
   <section class="section" id="certifications">
-    <p class="section-label">Certifications</p>
+    <p class="section-label">ServiceNow Certifications</p>
     <div class="cert-list">
-      <div class="cert-row">
-        <span class="cert-name">Micro-Certification — Welcome to ServiceNow</span>
-        <div class="cert-meta">
-          <span class="cert-issuer">ServiceNow · Feb 2024</span>
-          <span class="cert-status-pill earned">Earned</span>
-        </div>
-      </div>
       <div class="cert-row">
         <span class="cert-name">Associate AI System Administrator</span>
         <div class="cert-meta">
@@ -302,69 +308,16 @@
           <span class="cert-status-pill progress">In progress</span>
         </div>
       </div>
-      <div class="cert-row">
-        <span class="cert-name">Add any other certifications here — e.g. ITIL, CompTIA</span>
-        <div class="cert-meta">
-          <span class="cert-issuer">Issuing body · YYYY</span>
-          <span class="cert-status-pill earned">Earned</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <p class="section-label">Skills</p>
-    <div class="skills-two-col">
-      <div>
-        <div class="skills-group-title">ServiceNow</div>
-        <div class="skill-tag-list">
-          <span class="skill-tag">Flow Designer</span>
-          <span class="skill-tag">Flows &amp; Subflows</span>
-          <span class="skill-tag">Platform Analytics</span>
-          <span class="skill-tag">Now Intelligence</span>
-          <span class="skill-tag">AI Agents</span>
-          <span class="skill-tag">Service Portal</span>
-          <span class="skill-tag">Reporting</span>
-          <span class="skill-tag">Triggers</span>
-        </div>
-      </div>
-      <div>
-        <div class="skills-group-title">IT Service Management</div>
-        <div class="skill-tag-list">
-          <span class="skill-tag">Add a skill</span>
-          <span class="skill-tag">Add a skill</span>
-          <span class="skill-tag">Add a skill</span>
-          <span class="skill-tag">Add a skill</span>
-          <span class="skill-tag">Add a skill</span>
-        </div>
-      </div>
-      <div>
-        <div class="skills-group-title">Leadership &amp; Management</div>
-        <div class="skill-tag-list">
-          <span class="skill-tag">Add a skill</span>
-          <span class="skill-tag">Add a skill</span>
-          <span class="skill-tag">Add a skill</span>
-        </div>
-      </div>
-      <div>
-        <div class="skills-group-title">Tools &amp; Platforms</div>
-        <div class="skill-tag-list">
-          <span class="skill-tag">Add a tool</span>
-          <span class="skill-tag">Add a tool</span>
-          <span class="skill-tag">Add a tool</span>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- REFERENCES -->
   <section class="section">
     <p class="section-label">References</p>
-    <p class="ref-note">References available on request.</p>
+    <p class="ref-note">References are available upon request.</p>
   </section>
 
-  <footer style="padding: 2rem 0 0; text-align: center; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-muted); letter-spacing: 0.07em; text-transform: uppercase;">
+  <footer style="padding:2rem 0 0;text-align:center;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--sn-muted);letter-spacing:0.07em;text-transform:uppercase;">
     nathanhart.uk &nbsp;·&nbsp; nathanhart778@gmail.com
   </footer>
 
