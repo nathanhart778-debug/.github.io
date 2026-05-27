@@ -90,17 +90,54 @@
     .ref-note { font-size: 0.85rem; color: var(--sn-muted); font-style: italic; }
 
     @media print {
-      body { background: #fff; color: #111; }
+      @page { margin: 1.2cm 1.4cm; size: A4; }
+      body { background: #fff; color: #111; font-size: 10.5px; line-height: 1.45; }
       .nav, .btn, .no-print { display: none !important; }
       .portfolio { padding: 0; max-width: 100%; }
-      .section { border-color: #ddd; }
-      .exp-bullets li, .edu-bullets li { color: #333; }
-      .summary-text, .exp-company, .edu-institution { color: #555; }
-      .section-label { color: #0b8c6e; }
-      .skill-tag { border-color: #ccc; color: #444; background: #f5f5f5; }
-      .cert-row { background: #f9f9f9; border-color: #ddd; }
-      .hero-contact-item, .hero-subtitle { color: #444; }
-      .hero-name { color: #111; }
+
+      /* Hero */
+      .hero { padding: 0.6rem 0 0.7rem; border-bottom: 0.5px solid #ccc; flex-wrap: nowrap; align-items: center; gap: 0; }
+      .hero-name { font-size: 1.5rem; margin-bottom: 0.15rem; color: #111; }
+      .hero-subtitle { font-size: 0.75rem; color: #444; margin-bottom: 0.4rem; }
+      .hero-contact { flex-direction: row; flex-wrap: wrap; gap: 0.6rem; }
+      .hero-contact-item { font-size: 0.72rem; color: #444; }
+      .hero-contact-item i { color: #0b8c6e; }
+
+      /* Sections */
+      .section { padding: 0.55rem 0; border-bottom: 0.5px solid #ddd; }
+      .section-label { font-size: 0.6rem; color: #0b8c6e; margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+      .section-label::after { background: #ddd; }
+
+      /* Profile */
+      .summary-text { font-size: 0.72rem; color: #333; line-height: 1.5; }
+
+      /* Experience */
+      .experience-item { margin-bottom: 0.55rem; }
+      .exp-role { font-size: 0.8rem; }
+      .exp-dates { font-size: 0.62rem; color: #0b8c6e; }
+      .exp-company { font-size: 0.7rem; color: #555; margin-bottom: 0.3rem; }
+      .exp-bullets li { font-size: 0.71rem; color: #333; line-height: 1.4; margin-bottom: 0.18rem; padding-left: 0.9rem; }
+      .exp-bullets li::before { color: #0b8c6e; font-size: 0.6rem; top: 0.2rem; }
+      .exp-divider { margin: 0.45rem 0; background: #eee; }
+
+      /* Education */
+      .edu-qual { font-size: 0.78rem; }
+      .edu-dates { font-size: 0.62rem; color: #0b8c6e; }
+      .edu-institution { font-size: 0.7rem; color: #555; }
+      .edu-bullets li { font-size: 0.71rem; color: #333; line-height: 1.4; padding-left: 0.9rem; }
+      .edu-bullets li::before { color: #0b8c6e; }
+
+      /* Certs & Awards */
+      .cert-list { gap: 5px; }
+      .cert-row { background: #f9f9f9; border-color: #ddd; padding: 0.4rem 0.75rem; }
+      .cert-name { font-size: 0.74rem; }
+      .cert-issuer { font-size: 0.66rem; color: #666; }
+      .cert-status-pill { font-size: 0.58rem; padding: 1px 6px; }
+      .cert-status-pill.earned { color: #0b8c6e; background: #e8f5f1; border-color: #0b8c6e; }
+      .cert-status-pill.progress { color: #b07020; background: #fdf3e3; border-color: #b07020; }
+
+      /* References */
+      .ref-note { font-size: 0.72rem; color: #666; }
     }
 
     @media (max-width: 600px) {
