@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nathan Hart — Crestline Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.ico" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sn-dark: #0b1120;
+      --sn-teal: #00c8a0;
+      --sn-teal-dim: #00a884;
+      --sn-muted: #7a9ab0;
+      --sn-border: rgba(0, 200, 160, 0.18);
+      --sn-card: rgba(14, 30, 58, 0.7);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--sn-dark); color: #e8f0ee; font-family: 'Outfit', sans-serif; font-weight: 300; line-height: 1.7; }
+    .portfolio { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 0; border-bottom: 0.5px solid var(--sn-border);
+      position: sticky; top: 0; background: rgba(11,17,32,0.95);
+      backdrop-filter: blur(10px); z-index: 100;
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--sn-teal); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { font-size: 0.78rem; color: var(--sn-muted); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--sn-teal); }
+
+    .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--sn-border); }
+    .hero-back { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-muted); text-decoration: none; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 1.5rem; transition: color 0.2s; }
+    .hero-back:hover { color: var(--sn-teal); }
+    .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; }
+    .hero-name { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.1; color: #f0f6f4; margin-bottom: 0.6rem; }
+    .hero-name em { font-style: italic; color: var(--sn-teal); }
+    .hero-subtitle { font-size: 0.95rem; color: var(--sn-muted); max-width: 520px; }
+
+    .section { padding: 2.8rem 0; border-bottom: 0.5px solid var(--sn-border); }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.6rem; display: flex; align-items: center; gap: 10px; }
+    .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--sn-border); }
+
+    /* PALETTE */
+    .palette-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+    .swatch { border-radius: 8px; overflow: hidden; border: 0.5px solid var(--sn-border); }
+    .swatch-block { height: 60px; }
+    .swatch-info { padding: 8px 10px; background: var(--sn-card); }
+    .swatch-name { font-size: 0.78rem; font-weight: 500; color: #e8f0ee; }
+    .swatch-hex { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-muted); margin-top: 2px; }
+    .swatch-role { font-size: 0.65rem; color: var(--sn-muted); margin-top: 2px; }
+
+    /* TYPOGRAPHY */
+    .type-row { background: var(--sn-card); border: 0.5px solid var(--sn-border); border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 10px; display: grid; grid-template-columns: 160px 1fr; gap: 1.5rem; align-items: center; }
+    .type-meta { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-muted); line-height: 1.8; }
+    .type-meta strong { display: block; font-size: 0.68rem; color: #a8c4bc; margin-bottom: 2px; }
+
+    /* COMPONENTS */
+    .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .comp-card { background: var(--sn-card); border: 0.5px solid var(--sn-border); border-radius: 10px; padding: 1.2rem; }
+    .comp-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+
+    /* SN TOKENS */
+    .token-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .token-row { background: var(--sn-card); border: 0.5px solid var(--sn-border); border-radius: 8px; padding: 0.75rem 1rem; display: flex; align-items: center; gap: 12px; }
+    .token-swatch { width: 32px; height: 32px; border-radius: 6px; flex-shrink: 0; border: 0.5px solid var(--sn-border); }
+    .token-name { font-size: 0.8rem; font-weight: 500; color: #e8f0ee; margin-bottom: 0.15rem; }
+    .token-hex { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-teal); }
+    .token-field { font-size: 0.65rem; color: var(--sn-muted); }
+
+    /* USAGE */
+    .usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .usage-card { border-radius: 10px; padding: 1.2rem 1.4rem; }
+    .usage-do { background: rgba(0,200,160,0.05); border: 0.5px solid rgba(0,200,160,0.2); }
+    .usage-dont { background: rgba(220,60,60,0.05); border: 0.5px solid rgba(220,60,60,0.15); }
+    .usage-head { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .usage-do .usage-head { color: var(--sn-teal); }
+    .usage-dont .usage-head { color: #e05050; }
+    .usage-list { list-style: none; }
+    .usage-list li { font-size: 0.8rem; color: #a8c4bc; padding: 3px 0 3px 1.1rem; position: relative; line-height: 1.5; }
+    .usage-do .usage-list li::before { content: '+'; position: absolute; left: 0; color: var(--sn-teal); font-family: 'DM Mono', monospace; font-size: 0.75rem; }
+    .usage-dont .usage-list li::before { content: '×'; position: absolute; left: 0; color: #e05050; font-family: 'DM Mono', monospace; font-size: 0.75rem; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .btn-ghost { background: transparent; color: var(--sn-teal); border: 0.5px solid var(--sn-teal); }
+    .btn-ghost:hover { background: rgba(0,200,160,0.08); }
+
+    footer { padding: 2rem 0 0; text-align: center; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-muted); letter-spacing: 0.07em; text-transform: uppercase; }
+
+    @media (max-width: 600px) {
+      .hero-name { font-size: 2.1rem; }
+      .comp-grid, .usage-grid, .token-grid { grid-template-columns: 1fr; }
+      .type-row { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="portfolio">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Nathan Hart</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="cv.html">CV</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <a href="crestline-project-intro.html" class="hero-back"><i class="ti ti-arrow-left"></i> Back to project</a>
+    <p class="hero-eyebrow">Supporting document · Crestline Technologies</p>
+    <h1 class="hero-name">Brand<br><em>Guidelines</em></h1>
+    <p class="hero-subtitle">The visual identity system created for Crestline Technologies — a fictional company used as the canvas for my ServiceNow self-service portal project.</p>
+  </section>
+
+  <!-- COLOUR PALETTE -->
+  <section class="section">
+    <p class="section-label">Colour palette</p>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-block" style="background:#0F2A45;"></div><div class="swatch-info"><div class="swatch-name">Deep Navy</div><div class="swatch-hex">#0F2A45</div><div class="swatch-role">Primary brand</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#2A4A63;"></div><div class="swatch-info"><div class="swatch-name">Navy Mid</div><div class="swatch-hex">#2A4A63</div><div class="swatch-role">Surfaces</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#5A8FA8;"></div><div class="swatch-info"><div class="swatch-name">Steel</div><div class="swatch-hex">#5A8FA8</div><div class="swatch-role">Secondary text</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#1D9E75;"></div><div class="swatch-info"><div class="swatch-name">Crestline Teal</div><div class="swatch-hex">#1D9E75</div><div class="swatch-role">CTAs & actions</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#5DCAA5;"></div><div class="swatch-info"><div class="swatch-name">Teal Mid</div><div class="swatch-hex">#5DCAA5</div><div class="swatch-role">Links & hover</div></div></div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="section">
+    <p class="section-label">Typography</p>
+    <div class="type-row">
+      <div class="type-meta"><strong>Display / H1</strong>DM Sans · 300 weight<br>Letter-spacing: -1px</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:300;color:#f0f6f4;letter-spacing:-0.5px;">Heading style</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Section title / H2</strong>DM Sans · 500 weight<br>Regular tracking</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:500;color:#e8f0ee;">Section title</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Body text</strong>DM Sans · 400 weight<br>Line-height: 1.75</div>
+      <div style="font-size:0.9rem;color:#a8c4bc;line-height:1.75;">Body copy used across descriptions and supporting text throughout the portal.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Labels & metadata</strong>DM Mono · 400 weight<br>Uppercase, tracked</div>
+      <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--sn-teal);letter-spacing:0.14em;text-transform:uppercase;">LABEL STYLE</div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section class="section">
+    <p class="section-label">Components</p>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <p class="comp-label">Buttons</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="background:#0F2A45;color:#fff;font-size:0.82rem;font-weight:500;padding:8px 16px;border-radius:6px;display:inline-block;">Primary</div>
+          <div style="background:transparent;color:#1D9E75;border:1px solid #1D9E75;font-size:0.82rem;font-weight:500;padding:8px 16px;border-radius:6px;display:inline-block;">Secondary</div>
+          <div style="background:#1D9E75;color:#fff;font-size:0.82rem;font-weight:500;padding:8px 16px;border-radius:6px;display:inline-block;">Accent / CTA</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <p class="comp-label">Status badges</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+          <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:3px 9px;border-radius:20px;background:rgba(200,222,240,0.15);color:#C8DEF0;">In progress</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:3px 9px;border-radius:20px;background:rgba(29,158,117,0.15);color:#5DCAA5;">Approved</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:3px 9px;border-radius:20px;background:rgba(240,200,80,0.15);color:#f0c850;">On hold</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:3px 9px;border-radius:20px;background:rgba(220,80,80,0.15);color:#e08080;">Rejected</span>
+        </div>
+        <p class="comp-label" style="margin-top:8px;">Priority</p>
+        <div style="display:flex;gap:6px;">
+          <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:3px 9px;border-radius:20px;background:rgba(220,80,80,0.15);color:#e08080;">P1 Critical</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:3px 9px;border-radius:20px;background:rgba(240,160,80,0.15);color:#f0a050;">P2 High</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:3px 9px;border-radius:20px;background:rgba(122,154,176,0.15);color:#7a9ab0;">P3 Normal</span>
+        </div>
+      </div>
+      <div class="comp-card" style="grid-column:1/-1;">
+        <p class="comp-label">Request card example</p>
+        <div style="border:0.5px solid var(--sn-border);border-radius:8px;overflow:hidden;">
+          <div style="background:#0F2A45;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:0.85rem;font-weight:500;color:#fff;">Hardware request</span>
+            <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:3px 9px;border-radius:20px;background:rgba(29,158,117,0.2);color:#5DCAA5;">Approved</span>
+          </div>
+          <div style="padding:12px 14px;background:rgba(14,30,58,0.5);">
+            <p style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--sn-muted);margin-bottom:4px;">REQ-00847 · 12 May 2025</p>
+            <p style="font-size:0.82rem;color:#a8c4bc;">MacBook Pro 14" — Requested by S. Patel</p>
+            <div style="display:flex;gap:6px;margin-top:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:2px 8px;border-radius:4px;background:rgba(0,200,160,0.08);border:0.5px solid var(--sn-border);color:#a8c4bc;">Manager approved</span>
+              <span style="font-family:'DM Mono',monospace;font-size:0.62rem;padding:2px 8px;border-radius:4px;background:rgba(0,200,160,0.08);border:0.5px solid var(--sn-border);color:#a8c4bc;">IT fulfilment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SN TOKENS -->
+  <section class="section">
+    <p class="section-label">ServiceNow portal tokens</p>
+    <p style="font-size:0.82rem;color:var(--sn-muted);margin-bottom:1.2rem;">Paste these values directly into the ServiceNow Service Portal theme CSS fields.</p>
+    <div class="token-grid">
+      <div class="token-row"><div class="token-swatch" style="background:#0F2A45;"></div><div><div class="token-name">Header background</div><div class="token-hex">#0F2A45</div><div class="token-field">$nav-bg / header-color</div></div></div>
+      <div class="token-row"><div class="token-swatch" style="background:#1D9E75;"></div><div><div class="token-name">Button / CTA colour</div><div class="token-hex">#1D9E75</div><div class="token-field">$brand-primary / btn-primary-bg</div></div></div>
+      <div class="token-row"><div class="token-swatch" style="background:#2A4A63;"></div><div><div class="token-name">Navigation background</div><div class="token-hex">#2A4A63</div><div class="token-field">$nav-sidebar-bg</div></div></div>
+      <div class="token-row"><div class="token-swatch" style="background:#F0F4F8;border:0.5px solid var(--sn-border);"></div><div><div class="token-name">Page background</div><div class="token-hex">#F0F4F8</div><div class="token-field">$body-bg</div></div></div>
+      <div class="token-row"><div class="token-swatch" style="background:#5A8FA8;"></div><div><div class="token-name">Secondary text</div><div class="token-hex">#5A8FA8</div><div class="token-field">$text-muted</div></div></div>
+      <div class="token-row"><div class="token-swatch" style="background:#5DCAA5;"></div><div><div class="token-name">Link / hover colour</div><div class="token-hex">#5DCAA5</div><div class="token-field">$link-color</div></div></div>
+      <div class="token-row"><div class="token-swatch" style="background:#E1F5EE;border:0.5px solid var(--sn-border);"></div><div><div class="token-name">Success background</div><div class="token-hex">#E1F5EE</div><div class="token-field">$state-success-bg</div></div></div>
+      <div class="token-row"><div class="token-swatch" style="background:#C8DEF0;border:0.5px solid var(--sn-border);"></div><div><div class="token-name">Info / pending background</div><div class="token-hex">#C8DEF0</div><div class="token-field">$state-info-bg</div></div></div>
+    </div>
+  </section>
+
+  <!-- USAGE -->
+  <section class="section">
+    <p class="section-label">Usage guidelines</p>
+    <div class="usage-grid">
+      <div class="usage-card usage-do">
+        <p class="usage-head">Do</p>
+        <ul class="usage-list">
+          <li>Use Deep Navy as the dominant brand colour</li>
+          <li>Use Crestline Teal for actions, CTAs, and approvals</li>
+          <li>Use DM Mono for all labels, codes, and metadata</li>
+          <li>Pair navy backgrounds with navy-tint or white text</li>
+          <li>Keep badge text in the same colour family as its background</li>
+        </ul>
+      </div>
+      <div class="usage-card usage-dont">
+        <p class="usage-head">Don't</p>
+        <ul class="usage-list">
+          <li>Use teal as a background colour for large areas</li>
+          <li>Mix both typefaces in the same UI element</li>
+          <li>Place navy text on a navy background</li>
+          <li>Use font weights above 500</li>
+          <li>Add drop shadows or gradients to brand elements</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Back to project</p>
+    <a href="crestline-project-intro.html" class="btn btn-ghost"><i class="ti ti-arrow-left"></i> View Crestline project</a>
+  </section>
+
+  <footer>nathanhart.uk &nbsp;·&nbsp; Crestline Technologies — fictional company, real skills</footer>
+
+</div>
+</body>
+</html>

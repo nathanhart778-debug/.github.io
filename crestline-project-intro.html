@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nathan Hart — Crestline Self-Service Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.ico" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sn-dark: #0b1120;
+      --sn-teal: #00c8a0;
+      --sn-teal-dim: #00a884;
+      --sn-muted: #7a9ab0;
+      --sn-border: rgba(0, 200, 160, 0.18);
+      --sn-card: rgba(14, 30, 58, 0.7);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--sn-dark); color: #e8f0ee; font-family: 'Outfit', sans-serif; font-weight: 300; line-height: 1.7; }
+    .portfolio { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 0; border-bottom: 0.5px solid var(--sn-border);
+      position: sticky; top: 0; background: rgba(11,17,32,0.95);
+      backdrop-filter: blur(10px); z-index: 100;
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--sn-teal); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { font-size: 0.78rem; color: var(--sn-muted); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--sn-teal); }
+
+    .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--sn-border); }
+    .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+    .hero-back { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-muted); text-decoration: none; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 1.5rem; transition: color 0.2s; }
+    .hero-back:hover { color: var(--sn-teal); }
+    .hero-name { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.1; color: #f0f6f4; margin-bottom: 0.6rem; }
+    .hero-name em { font-style: italic; color: var(--sn-teal); }
+    .hero-subtitle { font-size: 0.95rem; color: var(--sn-muted); max-width: 520px; margin-bottom: 1.5rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; padding: 3px 12px; border-radius: 20px; border: 0.5px solid var(--sn-teal); color: var(--sn-teal); letter-spacing: 0.04em; }
+    .status-pill { font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 4px 12px; border-radius: 20px; background: rgba(240,160,80,0.12); color: #f0a050; border: 0.5px solid rgba(240,160,80,0.3); display: inline-block; }
+
+    .section { padding: 2.8rem 0; border-bottom: 0.5px solid var(--sn-border); }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.6rem; display: flex; align-items: center; gap: 10px; }
+    .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--sn-border); }
+
+    .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .stat-card { background: var(--sn-card); border: 0.5px solid var(--sn-border); border-radius: 8px; padding: 1rem; text-align: center; }
+    .stat-number { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--sn-teal); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.72rem; color: var(--sn-muted); }
+
+    .build-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .build-card { background: var(--sn-card); border: 0.5px solid var(--sn-border); border-radius: 10px; padding: 1.2rem 1.3rem; transition: border-color 0.2s; }
+    .build-card:hover { border-color: var(--sn-teal); }
+    .build-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-teal); margin-bottom: 0.5rem; letter-spacing: 0.06em; }
+    .build-title { font-size: 0.9rem; font-weight: 500; color: #f0f6f4; margin-bottom: 0.4rem; }
+    .build-desc { font-size: 0.8rem; color: var(--sn-muted); line-height: 1.6; margin-bottom: 0.75rem; }
+    .build-badge { font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 4px; background: rgba(0,200,160,0.08); border: 0.5px solid var(--sn-border); color: #a8c4bc; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+    .skill-card { background: var(--sn-card); border: 0.5px solid var(--sn-border); border-radius: 8px; padding: 1rem; text-align: center; }
+    .skill-icon { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--sn-teal); }
+    .skill-name { font-size: 0.8rem; font-weight: 500; color: #c8ddd6; margin-bottom: 0.2rem; }
+    .skill-sub { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--sn-muted); }
+
+    .goal-card { background: rgba(0,200,160,0.05); border: 0.5px solid rgba(0,200,160,0.25); border-radius: 10px; padding: 1.5rem; display: flex; gap: 1.2rem; align-items: flex-start; }
+    .goal-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--sn-teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .goal-icon i { font-size: 20px; color: var(--sn-dark); }
+    .goal-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .goal-text { font-size: 0.9rem; color: #a8c4bc; line-height: 1.75; }
+    .goal-text strong { color: #e8f0ee; font-weight: 500; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; border-radius: 6px; text-decoration: none; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .btn-ghost { background: transparent; color: var(--sn-teal); border: 0.5px solid var(--sn-teal); }
+    .btn-ghost:hover { background: rgba(0,200,160,0.08); }
+
+    .context-text { font-size: 0.9rem; color: #a8c4bc; line-height: 1.8; margin-bottom: 1rem; }
+    .context-text strong { color: #e8f0ee; font-weight: 500; }
+
+    footer { padding: 2rem 0 0; text-align: center; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-muted); letter-spacing: 0.07em; text-transform: uppercase; }
+
+    @media (max-width: 600px) {
+      .hero-name { font-size: 2.1rem; }
+      .build-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="portfolio">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Nathan Hart</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="cv.html">CV</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <a href="projects.html" class="hero-back"><i class="ti ti-arrow-left"></i> Back to projects</a>
+    <div class="hero-eyebrow">ServiceNow PDI · Portfolio project</div>
+    <h1 class="hero-name">Crestline<br><em>Self-Service Portal</em></h1>
+    <p class="hero-subtitle">A fully themed service portal built in my Personal Developer Instance around a fictional company — demonstrating real catalogue design, flow automation, and approval workflows.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Service Portal</span>
+      <span class="hero-tag">Service Catalogue</span>
+      <span class="hero-tag">Flow Designer</span>
+      <span class="hero-tag">Approval Workflows</span>
+      <span class="hero-tag">PDI Project</span>
+    </div>
+    <span class="status-pill">In progress</span>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Project context</p>
+    <p class="context-text">As <strong>Service Desk Manager at Cox Automotive</strong>, I see first-hand how much time is spent on requests that could be handled through self-service. This project replicates that problem using a fictional company — <strong>Crestline Technologies</strong> — as the canvas, letting me build a production-style portal without touching live systems.</p>
+    <p class="context-text">The portal covers the four most common request types on any service desk: password resets, new starter provisioning, hardware requests, and themed portal access — each with its own workflow, approvals, and automated fulfilment tasks.</p>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Project stats</p>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Catalogue items</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Fulfilment teams</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Themed portal</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Skills developed</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">What I built</p>
+    <div class="build-grid">
+      <div class="build-card">
+        <div class="build-num">01</div>
+        <div class="build-title">Custom portal theme & branding</div>
+        <p class="build-desc">Configured a custom Service Portal theme using the Crestline brand palette — header, navigation, fonts, and homepage layout all set to match a real intranet deployment.</p>
+        <span class="build-badge">Service Portal</span>
+      </div>
+      <div class="build-card">
+        <div class="build-num">02</div>
+        <div class="build-title">Password reset</div>
+        <p class="build-desc">A self-service catalogue item with dynamic variable sets, an automated reset workflow, and user-facing status notifications — no service desk contact required.</p>
+        <span class="build-badge">Catalogue item</span>
+      </div>
+      <div class="build-card">
+        <div class="build-num">03</div>
+        <div class="build-title">New starter request</div>
+        <p class="build-desc">Multi-team fulfilment with parallel tasks assigned to IT, HR, and Facilities — each tracked independently through Flow Designer, mirroring a real onboarding workflow.</p>
+        <span class="build-badge">Flow Designer</span>
+      </div>
+      <div class="build-card">
+        <div class="build-num">04</div>
+        <div class="build-title">Hardware request</div>
+        <p class="build-desc">Catalogue item with conditional variable sets — the form adapts based on what is selected. A manager approval gate is required before fulfilment tasks are generated.</p>
+        <span class="build-badge">Approval workflow</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Skills developed</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon"><i class="ti ti-layout"></i></div>
+        <div class="skill-name">Service Portal config</div>
+        <div class="skill-sub">Theming · Widgets</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="ti ti-clipboard-list"></i></div>
+        <div class="skill-name">Catalogue design</div>
+        <div class="skill-sub">Items · Variable sets</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="ti ti-arrows-split-2"></i></div>
+        <div class="skill-name">Flow Designer</div>
+        <div class="skill-sub">Triggers · Actions</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="ti ti-checkbox"></i></div>
+        <div class="skill-name">Approval workflows</div>
+        <div class="skill-sub">Chains · Escalation</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="ti ti-eye"></i></div>
+        <div class="skill-name">End-user UX</div>
+        <div class="skill-sub">Portal · Usability</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Project goal</p>
+    <div class="goal-card">
+      <div class="goal-icon"><i class="ti ti-target"></i></div>
+      <div>
+        <div class="goal-label">Goal</div>
+        <p class="goal-text"><strong>Demonstrate a production-ready self-service portal</strong> that reduces reliance on direct contact with the service desk — showing end-to-end request handling from submission through approval to automated fulfilment, using only a free ServiceNow Personal Developer Instance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Supporting documents</p>
+    <a href="crestline-brand-guidelines.html" class="btn btn-ghost"><i class="ti ti-palette"></i> View Crestline Brand Guidelines</a>
+  </section>
+
+  <footer>nathanhart.uk &nbsp;·&nbsp; Crestline Technologies — fictional company, real skills</footer>
+
+</div>
+</body>
+</html>
