@@ -90,6 +90,40 @@
       .stat-row { grid-template-columns: repeat(2, 1fr); }
       .nav-links { gap: 1rem; }
     }
+    /* SCREENSHOT THUMBNAIL */
+    .screenshot-thumb {
+      position: relative; margin-top: 0.9rem; border-radius: 6px;
+      overflow: hidden; cursor: pointer; border: 0.5px solid var(--sn-border);
+    }
+    .screenshot-thumb img { width: 100%; display: block; transition: transform 0.3s; }
+    .screenshot-thumb:hover img { transform: scale(1.02); }
+    .screenshot-overlay {
+      position: absolute; inset: 0; background: rgba(11,17,32,0.5);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      color: var(--sn-teal); letter-spacing: 0.1em; text-transform: uppercase;
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .screenshot-thumb:hover .screenshot-overlay { opacity: 1; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%; max-height: 90vh; border-radius: 8px;
+      box-shadow: 0 0 60px rgba(0,200,160,0.15); border: 0.5px solid var(--sn-border);
+    }
+    .lightbox-close {
+      position: absolute; top: 1.2rem; right: 1.5rem;
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      color: var(--sn-muted); cursor: pointer; letter-spacing: 0.1em;
+      text-transform: uppercase; transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--sn-teal); }
   </style>
 </head>
 <body>
@@ -109,36 +143,7 @@
     <div class="hero-eyebrow">ServiceNow PDI · Portfolio project</div>
     <h1 class="hero-name">Crestline<br><em>Self-Service Portal</em></h1>
     <p class="hero-subtitle">A fully themed service portal built in my Personal Developer Instance around a fictional company — demonstrating real catalogue design, flow automation, and approval workflows.</p>
-    <div class="hero-tags">
-      <span class="hero-tag">Service Portal</span>
-      <span class="hero-tag">Service Catalogue</span>
-      <span class="hero-tag">Flow Designer</span>
-      <span class="hero-tag">Approval Workflows</span>
-      <span class="hero-tag">PDI Project</span>
-    </div>
     <span class="status-pill">In progress</span>
-  </section>
-
-  <section class="section">
-    <p class="section-label">Project stats</p>
-    <div class="stat-row">
-      <div class="stat-card">
-        <div class="stat-number">4</div>
-        <div class="stat-label">Catalogue items</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">3</div>
-        <div class="stat-label">Fulfilment teams</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">1</div>
-        <div class="stat-label">Themed portal</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">5</div>
-        <div class="stat-label">Skills developed</div>
-      </div>
-    </div>
   </section>
 
   <section class="section">
@@ -159,7 +164,11 @@
         <div class="build-num">01</div>
         <div class="build-title">Custom portal theme & branding</div>
         <p class="build-desc">Configured a custom Service Portal theme using the Crestline brand palette — header, navigation, fonts, and homepage layout all set to match a real intranet deployment.</p>
-        <span class="build-badge">Service Portal</span>
+        <div class="screenshot-thumb" onclick="openLightbox()" title="Click to view full size">
+          <img src="Crestline_Service_Portal_Home.png" alt="Crestline Self-Service Portal homepage" />
+          <div class="screenshot-overlay">Click to expand</div>
+        </div>
+        <span class="build-badge" style="margin-top:0.75rem;display:inline-block;">Service Portal</span>
       </div>
       <div class="build-card">
         <div class="build-num">02</div>
@@ -183,37 +192,6 @@
   </section>
 
   <section class="section">
-    <p class="section-label">Skills developed</p>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon"><i class="ti ti-layout"></i></div>
-        <div class="skill-name">Service Portal config</div>
-        <div class="skill-sub">Theming · Widgets</div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon"><i class="ti ti-clipboard-list"></i></div>
-        <div class="skill-name">Catalogue design</div>
-        <div class="skill-sub">Items · Variable sets</div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon"><i class="ti ti-arrows-split-2"></i></div>
-        <div class="skill-name">Flow Designer</div>
-        <div class="skill-sub">Triggers · Actions</div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon"><i class="ti ti-checkbox"></i></div>
-        <div class="skill-name">Approval workflows</div>
-        <div class="skill-sub">Chains · Escalation</div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon"><i class="ti ti-eye"></i></div>
-        <div class="skill-name">End-user UX</div>
-        <div class="skill-sub">Portal · Usability</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
     <p class="section-label">Supporting documents</p>
     <a href="crestline-brand-guidelines.html" class="btn btn-ghost"><i class="ti ti-palette"></i> View Crestline Brand Guidelines</a>
   </section>
@@ -221,5 +199,17 @@
   <footer>nathanhart.uk &nbsp;·&nbsp; Crestline Technologies — fictional company, real skills</footer>
 
 </div>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">Close</span>
+    <img src="Crestline_Service_Portal_Home.png" alt="Crestline Self-Service Portal" />
+  </div>
+
+  <script>
+    function openLightbox() { document.getElementById('lightbox').classList.add('open'); }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+
 </body>
 </html>
