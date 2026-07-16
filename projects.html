@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nathan Hart — Projects</title>
-  <meta name="description" content="ServiceNow projects built by Nathan Hart in his Personal Developer Instance — including a self-service portal, incident dashboard, and knowledge base." />
+  <meta name="description" content="ServiceNow projects built by Nathan Hart in his Personal Developer Instance — including a self-service portal, kit tracker, incident dashboard, and knowledge base." />
   <meta name="author" content="Nathan Hart" />
   <meta property="og:title" content="Nathan Hart — ServiceNow Projects" />
   <meta property="og:description" content="Hands-on ServiceNow projects built by Nathan Hart, Service Desk Manager and aspiring ServiceNow Administrator." />
@@ -42,27 +42,16 @@
     .nav-links a:hover, .nav-links a.active { color: var(--sn-teal); }
 
     /* HERO */
-    .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--sn-border); text-align: center; }
+    .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--sn-border); }
     .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; }
     .hero-name { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.1; color: #f0f6f4; margin-bottom: 0.6rem; }
     .hero-name em { font-style: italic; color: var(--sn-teal); }
-    .hero-subtitle { font-size: 1rem; color: var(--sn-muted); max-width: 500px; margin: 0 auto; }
+    .hero-subtitle { font-size: 1rem; color: var(--sn-muted); max-width: 500px; }
 
     /* SECTIONS */
     .section { padding: 3rem 0; border-bottom: 0.5px solid var(--sn-border); }
     .section-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.6rem; display: flex; align-items: center; gap: 10px; }
     .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--sn-border); }
-
-    /* FILTER PILLS */
-    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.75rem; }
-    .filter-pill {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem; padding: 5px 14px;
-      border-radius: 20px; border: 0.5px solid var(--sn-border);
-      color: var(--sn-muted); background: transparent; cursor: pointer;
-      letter-spacing: 0.06em; transition: all 0.2s;
-    }
-    .filter-pill:hover { border-color: var(--sn-teal); color: var(--sn-teal); }
-    .filter-pill.active { background: rgba(0,200,160,0.1); border-color: var(--sn-teal); color: var(--sn-teal); }
 
     /* PROJECT CARDS */
     .project-card {
@@ -70,9 +59,7 @@
       border-radius: 12px; padding: 1.6rem; margin-bottom: 1.2rem;
       transition: border-color 0.2s;
     }
-    .project-card:last-child { margin-bottom: 0; }
     .project-card:hover { border-color: var(--sn-teal); }
-    .project-card.hidden { display: none; }
 
     .project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
     .project-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: #f0f6f4; font-weight: 400; }
@@ -103,12 +90,7 @@
       font-size: 0.82rem; color: #a0c8b8; font-style: italic;
     }
     .project-outcome::before { content: 'Goal: '; color: var(--sn-teal); font-style: normal; font-weight: 500; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.05em; }
-
-    .project-view-link {
-      margin-top: 1.2rem; padding-top: 1.2rem; border-top: 0.5px solid var(--sn-border);
-      display: flex; justify-content: flex-end;
-    }
-    .project-view-link span { display: inline-flex; align-items: center; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500; color: var(--sn-teal); }
+    .project-outcome.complete::before { content: 'Outcome: '; }
 
     /* FOOTER */
     footer { padding: 2rem 0 0; text-align: center; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-muted); letter-spacing: 0.07em; text-transform: uppercase; }
@@ -138,13 +120,12 @@
     <p class="hero-subtitle">Hands-on ServiceNow projects built in my Personal Developer Instance — documenting what I've built, why, and what I learned.</p>
   </section>
 
-  <!-- CRESTLINE ABOUT -->
   <section class="section">
     <p class="section-label">About Crestline Technologies</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;">
       <div>
         <p style="font-size:0.9rem;color:#a8c4bc;line-height:1.8;margin-bottom:1rem;">All projects on this page are built around <strong style="color:#e8f0ee;font-weight:500;">Crestline Technologies</strong> — a fictional mid-size company I created specifically for my Personal Developer Instance. Using a consistent fictional company across every project means each build feels like a real deployment rather than a disconnected exercise.</p>
-        <p style="font-size:0.9rem;color:#a8c4bc;line-height:1.8;">Crestline has its own brand identity, colour palette, and design language — applied consistently across the service portal, catalogue items, dashboards, and any future builds.</p>
+        <p style="font-size:0.9rem;color:#a8c4bc;line-height:1.8;">Crestline has its own brand identity, colour palette, and design language — applied consistently across the service portal, kit tracker, catalogue items, dashboards, and any future builds.</p>
       </div>
       <div>
         <div style="background:var(--sn-card);border:0.5px solid var(--sn-border);border-radius:10px;padding:1.2rem;">
@@ -162,20 +143,56 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section class="section">
-    <p class="section-label">Projects</p>
+    <p class="section-label">Complete &amp; in progress</p>
 
-    <!-- FILTER -->
-    <div class="filter-row">
-      <button class="filter-pill active" onclick="filterProjects('all', this)">All</button>
-      <button class="filter-pill" onclick="filterProjects('progress', this)">In Progress</button>
-      <button class="filter-pill" onclick="filterProjects('planned', this)">Planned</button>
+    <!-- PROJECT: Kit Tracker -->
+    <a href="crestline-kit-tracker.html" style="text-decoration:none;display:block;">
+    <div class="project-card" style="cursor:pointer;">
+      <div class="project-top">
+        <span class="project-title">Crestline Kit Tracker</span>
+        <span class="project-status status-complete">Complete</span>
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">Data Modelling</span>
+        <span class="project-tag">ACLs</span>
+        <span class="project-tag">Import Sets</span>
+        <span class="project-tag">CMDB / CSDM</span>
+        <span class="project-tag">Security Center</span>
+      </div>
+      <p class="project-desc">A loaned equipment tracker built as a five-phase CSA exam prep project, deliberately targeting my weakest exam areas: data modelling, ACL configuration, and CMDB/CSDM ownership. Covers table extension, table and field-level ACLs (including script-based conditions), import sets with coalesce behaviour, and CI relationships tied back to Incident.</p>
+      <div class="project-sections">
+        <div>
+          <div class="project-section-title">What I built</div>
+          <ul class="project-list">
+            <li>Custom schema — standalone and Task-extended tables</li>
+            <li>Table and field-level ACLs, impersonation-tested</li>
+            <li>Script-based ACL condition</li>
+            <li>Import set with mismatched headers and coalesce</li>
+            <li>CMDB CIs related via Runs on::Runs, linked to Incident</li>
+          </ul>
+        </div>
+        <div>
+          <div class="project-section-title">Skills developed</div>
+          <ul class="project-list">
+            <li>Data model design and table extension</li>
+            <li>ACL logic and role-based security</li>
+            <li>Transform maps and coalesce behaviour</li>
+            <li>CI Class Manager and CI relationships</li>
+            <li>Shared Responsibility Model</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-outcome complete">Built and tested real evidence against the three CSA exam areas furthest from my day-to-day ITSM operations work — not just studied, but demonstrably working on a live PDI.</div>
+      <div style="margin-top:1.2rem;padding-top:1.2rem;border-top:0.5px solid var(--sn-border);display:flex;justify-content:flex-end;">
+        <span style="display:inline-flex;align-items:center;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;color:var(--sn-teal);">View project</span>
+      </div>
     </div>
+    </a>
 
-    <!-- PROJECT 1: Self-Service Portal -->
-    <a href="crestline-self-service.html" style="text-decoration:none;display:block;margin-bottom:1.2rem;" data-status="progress">
-    <div class="project-card" style="cursor:pointer;margin-bottom:0;">
+    <!-- PROJECT: Self-Service Portal -->
+    <a href="crestline-self-service.html" style="text-decoration:none;display:block;">
+    <div class="project-card" style="cursor:pointer;">
       <div class="project-top">
         <span class="project-title">Self-Service Portal</span>
         <span class="project-status status-progress">In Progress</span>
@@ -186,7 +203,7 @@
         <span class="project-tag">Flow Designer</span>
         <span class="project-tag">Approval Workflows</span>
       </div>
-      <p class="project-desc">Building a fully themed self-service portal with a structured service catalogue covering the most common IT requests. Each catalogue item has dynamic variable sets, approval chains, and automated fulfilment tasks — mirroring what a real service desk would need.</p>
+      <p class="project-desc">Building a fully themed self-service portal with a structured service catalogue covering the most common IT requests. Each catalogue item will have dynamic variable sets, approval chains, and automated fulfilment tasks — mirroring what a real service desk would need.</p>
       <div class="project-sections">
         <div>
           <div class="project-section-title">What I'm building</div>
@@ -210,12 +227,14 @@
         </div>
       </div>
       <div class="project-outcome">Demonstrate a production-ready self-service portal that reduces reliance on direct contact with the service desk.</div>
-      <div class="project-view-link"><span>View project</span></div>
+      <div style="margin-top:1.2rem;padding-top:1.2rem;border-top:0.5px solid var(--sn-border);display:flex;justify-content:flex-end;">
+        <span style="display:inline-flex;align-items:center;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;color:var(--sn-teal);">View project</span>
+      </div>
     </div>
     </a>
 
-    <!-- PROJECT 2: Incident Dashboard -->
-    <div class="project-card" data-status="planned">
+    <!-- PROJECT: Incident Dashboard -->
+    <div class="project-card">
       <div class="project-top">
         <span class="project-title">Incident Management Dashboard</span>
         <span class="project-status status-planned">Planned</span>
@@ -252,8 +271,8 @@
       <div class="project-outcome">Produce a dashboard that a service desk manager could use on day one — demonstrating practical reporting skills alongside platform knowledge.</div>
     </div>
 
-    <!-- PROJECT 3: Knowledge Base -->
-    <div class="project-card" data-status="planned">
+    <!-- PROJECT: Knowledge Base -->
+    <div class="project-card">
       <div class="project-top">
         <span class="project-title">Knowledge Base</span>
         <span class="project-status status-planned">Planned</span>
@@ -290,70 +309,10 @@
       <div class="project-outcome">Build a working knowledge base that demonstrates understanding of knowledge-centred service delivery and its role in reducing repeat incidents.</div>
     </div>
 
-    <!-- PROJECT 4: ServiceNow & Salesforce API Integration -->
-    <div class="project-card" data-status="planned">
-      <div class="project-top">
-        <span class="project-title">ServiceNow & Salesforce Integration</span>
-        <span class="project-status status-planned">Planned</span>
-      </div>
-      <div class="project-tags">
-        <span class="project-tag">REST API</span>
-        <span class="project-tag">Integration Hub</span>
-        <span class="project-tag">Salesforce</span>
-        <span class="project-tag">Scripted REST</span>
-        <span class="project-tag">Flow Designer</span>
-      </div>
-      <p class="project-desc">Building a bi-directional API integration between ServiceNow and Salesforce — automatically creating and updating ServiceNow incidents when Salesforce cases are raised, and syncing status changes back. Demonstrates real-world enterprise integration patterns used across large organisations.</p>
-      <div class="project-sections">
-        <div>
-          <div class="project-section-title">What I'm building</div>
-          <ul class="project-list">
-            <li>Outbound REST API calls from ServiceNow to Salesforce</li>
-            <li>Inbound webhook from Salesforce to ServiceNow</li>
-            <li>Scripted REST API endpoint in ServiceNow</li>
-            <li>Flow Designer orchestration of sync logic</li>
-            <li>Field mapping between both platforms</li>
-          </ul>
-        </div>
-        <div>
-          <div class="project-section-title">Skills being developed</div>
-          <ul class="project-list">
-            <li>REST API design and consumption</li>
-            <li>Integration Hub configuration</li>
-            <li>Scripted REST API</li>
-            <li>OAuth authentication</li>
-            <li>Cross-platform data mapping</li>
-          </ul>
-        </div>
-      </div>
-      <div class="project-outcome">Demonstrate enterprise-grade integration capability — showing I can connect ServiceNow to external platforms using industry-standard API patterns.</div>
-    </div>
-
   </section>
 
   <footer>nathanhart.uk &nbsp;·&nbsp; ServiceNow Developer Instance Projects</footer>
 
 </div>
-
-<script>
-  function filterProjects(status, btn) {
-    // Update active pill
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-
-    // Get all project card wrappers (both <a> and <div>)
-    const cards = document.querySelectorAll('[data-status]');
-    cards.forEach(card => {
-      if (status === 'all') {
-        card.style.display = '';
-      } else if (card.dataset.status === status) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-</script>
-
 </body>
 </html>
