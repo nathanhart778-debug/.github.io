@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nathan Hart — Crestline Kit Tracker</title>
+  <meta name="description" content="A ServiceNow PDI project covering data modelling, ACLs, import sets, CMDB/CSDM and Security Center — built as CSA exam prep by Nathan Hart." />
+  <meta property="og:title" content="Nathan Hart — Crestline Kit Tracker" />
+  <meta property="og:description" content="Loaned equipment tracker built on a ServiceNow PDI, covering CSA exam gaps: data modelling, ACLs, import sets, CMDB/CSDM." />
+  <meta property="og:url" content="https://nathanhart.uk/crestline-kit-tracker.html" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.ico" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sn-dark: #0b1120;
+      --sn-teal: #00c8a0;
+      --sn-teal-dim: #00a884;
+      --sn-muted: #7a9ab0;
+      --sn-border: rgba(0, 200, 160, 0.18);
+      --sn-card: rgba(14, 30, 58, 0.7);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--sn-dark); color: #e8f0ee; font-family: 'Outfit', sans-serif; font-weight: 300; line-height: 1.7; }
+    .portfolio { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 0; border-bottom: 0.5px solid var(--sn-border);
+      position: sticky; top: 0; background: rgba(11,17,32,0.95);
+      backdrop-filter: blur(10px); z-index: 100;
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--sn-teal); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { font-size: 0.78rem; color: var(--sn-muted); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--sn-teal); }
+
+    .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--sn-border); text-align: center; }
+    .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .hero-back { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-muted); text-decoration: none; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 1.5rem; transition: color 0.2s; }
+    .hero-back:hover { color: var(--sn-teal); }
+    .hero-name { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.1; color: #f0f6f4; margin-bottom: 0.6rem; }
+    .hero-name em { font-style: italic; color: var(--sn-teal); }
+    .hero-subtitle { font-size: 0.95rem; color: var(--sn-muted); max-width: 520px; margin: 0 auto 1.5rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; padding: 3px 12px; border-radius: 20px; border: 0.5px solid var(--sn-teal); color: var(--sn-teal); letter-spacing: 0.04em; }
+    .status-pill { font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 4px 12px; border-radius: 20px; background: rgba(0,200,160,0.12); color: var(--sn-teal); border: 0.5px solid rgba(0,200,160,0.3); display: inline-block; }
+
+    .section { padding: 2.8rem 0; border-bottom: 0.5px solid var(--sn-border); }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.6rem; display: flex; align-items: center; gap: 10px; }
+    .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--sn-border); }
+
+    .goal-card { background: rgba(0,200,160,0.05); border: 0.5px solid rgba(0,200,160,0.25); border-radius: 10px; padding: 1.5rem; display: flex; gap: 1.2rem; align-items: flex-start; }
+    .goal-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--sn-teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .goal-icon i { font-size: 20px; color: var(--sn-dark); }
+    .goal-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .goal-text { font-size: 0.9rem; color: #a8c4bc; line-height: 1.75; }
+    .goal-text strong { color: #e8f0ee; font-weight: 500; }
+
+    .phase-card { background: var(--sn-card); border: 0.5px solid var(--sn-border); border-radius: 10px; padding: 1.4rem 1.5rem; margin-bottom: 1rem; transition: border-color 0.2s; }
+    .phase-card:last-child { margin-bottom: 0; }
+    .phase-card:hover { border-color: var(--sn-teal); }
+    .phase-top { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; }
+    .phase-num { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--sn-teal); letter-spacing: 0.06em; }
+    .phase-title { font-size: 0.95rem; font-weight: 500; color: #f0f6f4; }
+    .phase-desc { font-size: 0.85rem; color: var(--sn-muted); line-height: 1.7; margin-bottom: 0.8rem; }
+    .phase-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .phase-badge { font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 4px; background: rgba(0,200,160,0.08); border: 0.5px solid var(--sn-border); color: #a8c4bc; }
+
+    .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 0.9rem; }
+    @media (max-width: 600px) { .evidence-grid { grid-template-columns: 1fr; } }
+
+    .screenshot-thumb {
+      position: relative; margin-top: 0.9rem; border-radius: 6px;
+      overflow: hidden; cursor: pointer; border: 0.5px solid var(--sn-border);
+    }
+    .screenshot-thumb img { width: 100%; display: block; transition: transform 0.3s; }
+    .screenshot-thumb:hover img { transform: scale(1.02); }
+    .screenshot-caption { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--sn-muted); margin-top: 0.4rem; letter-spacing: 0.02em; }
+    .screenshot-overlay {
+      position: absolute; inset: 0; background: rgba(11,17,32,0.5);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      color: var(--sn-teal); letter-spacing: 0.1em; text-transform: uppercase;
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .screenshot-thumb:hover .screenshot-overlay { opacity: 1; }
+
+    .learn-list { list-style: none; padding: 0; }
+    .learn-list li { font-size: 0.85rem; color: #a8c4bc; padding-left: 1.1rem; position: relative; margin-bottom: 0.7rem; line-height: 1.65; }
+    .learn-list li::before { content: '▸'; position: absolute; left: 0; color: var(--sn-teal); font-size: 0.7rem; top: 0.3rem; }
+    .learn-list strong { color: #e8f0ee; font-weight: 500; }
+
+    code { font-family: 'DM Mono', monospace; font-size: 0.85em; background: rgba(0,200,160,0.08); padding: 2px 6px; border-radius: 4px; color: #a8dfcb; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; border-radius: 6px; text-decoration: none; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .btn-ghost { background: transparent; color: var(--sn-teal); border: 0.5px solid var(--sn-teal); }
+    .btn-ghost:hover { background: rgba(0,200,160,0.08); }
+
+    footer { padding: 2rem 0 0; text-align: center; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-muted); letter-spacing: 0.07em; text-transform: uppercase; }
+
+    @media (max-width: 600px) {
+      .hero-name { font-size: 2.1rem; }
+      .nav-links { gap: 1rem; }
+    }
+
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%; max-height: 90vh; border-radius: 8px;
+      box-shadow: 0 0 60px rgba(0,200,160,0.15); border: 0.5px solid var(--sn-border);
+    }
+    .lightbox-close {
+      position: absolute; top: 1.2rem; right: 1.5rem;
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      color: var(--sn-muted); cursor: pointer; letter-spacing: 0.1em;
+      text-transform: uppercase; transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--sn-teal); }
+  </style>
+</head>
+<body>
+<div class="portfolio">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Nathan Hart</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="cv.html">CV</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <a href="projects.html" class="hero-back"><i class="ti ti-arrow-left"></i> Back to projects</a>
+    <div class="hero-eyebrow">ServiceNow PDI · CSA exam prep project</div>
+    <h1 class="hero-name">Crestline<br><em>Kit Tracker</em></h1>
+    <p class="hero-subtitle">A loaned equipment tracking app built from scratch on a Personal Developer Instance, deliberately targeting the three areas the CSA exam covers that my day-to-day service desk work doesn't: data modelling, ACL configuration, and CMDB/CSDM ownership.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Data Modelling</span>
+      <span class="hero-tag">ACLs</span>
+      <span class="hero-tag">Import Sets</span>
+      <span class="hero-tag">CMDB / CSDM</span>
+      <span class="hero-tag">Security Center</span>
+    </div>
+    <span class="status-pill">Complete</span>
+  </section>
+
+  <section class="section">
+    <p class="section-label">The five phases</p>
+
+    <div class="phase-card">
+      <div class="phase-top">
+        <span class="phase-num">01</span>
+        <span class="phase-title">Data schema fundamentals</span>
+      </div>
+      <p class="phase-desc">Built a scoped app with two custom tables: <code>u_kit_item</code> (standalone — serial number, status, purchase cost) and <code>u_kit_loan</code> (extends Task — inheriting number, state, and assignment group for free). Added a dictionary override to see field behaviour diverge across the extension hierarchy, then traced both tables in Tables &amp; Columns to compare an extended table against a standalone one.</p>
+      <div class="phase-badges">
+        <span class="phase-badge">Table extension</span>
+        <span class="phase-badge">Dictionary overrides</span>
+      </div>
+      <div class="screenshot-thumb" onclick="openLightbox('images/Kit_Tracker_Schema.png')" title="Click to view full size">
+        <img src="images/Kit_Tracker_Schema.png" alt="Kit Loan table showing 60+ fields inherited from the Task table" />
+        <div class="screenshot-overlay">Click to expand</div>
+      </div>
+      <p class="screenshot-caption">u_kit_loan extending Task — number, state, assignment group and every approval field inherited without being built.</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-top">
+        <span class="phase-num">02</span>
+        <span class="phase-title">ACLs</span>
+      </div>
+      <p class="phase-desc">Created two roles — <code>u_kit_manager</code> for table-level access and <code>u_kit_finance</code> for a single sensitive field. Built table-level ACLs (read/create/write/delete) and a separate field-level ACL restricting <code>u_purchase_cost</code> to a different role entirely. Added a script-based ACL on Kit Loan (<code>answer = current.u_requested_for == gs.getUserID();</code>) so a requester can always see their own loan regardless of role.</p>
+      <div class="phase-badges">
+        <span class="phase-badge">Table &amp; field ACLs</span>
+        <span class="phase-badge">Script-based conditions</span>
+        <span class="phase-badge">Impersonation testing</span>
+      </div>
+      <div class="evidence-grid">
+        <div>
+          <div class="screenshot-thumb" onclick="openLightbox('images/Kit_Tracker_ACL_Field.png')" title="Click to view full size">
+            <img src="images/Kit_Tracker_ACL_Field.png" alt="Field-level ACL on Purchase Cost requiring the u_kit_finance role" />
+            <div class="screenshot-overlay">Click to expand</div>
+          </div>
+          <p class="screenshot-caption">Field-level ACL scoping Purchase Cost to a separate finance role.</p>
+        </div>
+        <div>
+          <div class="screenshot-thumb" onclick="openLightbox('images/Kit_Tracker_ACL_Impersonation.png')" title="Click to view full size">
+            <img src="images/Kit_Tracker_ACL_Impersonation.png" alt="Impersonated test user unable to see the Purchase Cost field" />
+            <div class="screenshot-overlay">Click to expand</div>
+          </div>
+          <p class="screenshot-caption">Impersonated as a manager-only user — Purchase Cost isn't offered at all.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-top">
+        <span class="phase-num">03</span>
+        <span class="phase-title">Import sets &amp; transform maps</span>
+      </div>
+      <p class="phase-desc">Loaded a CSV with deliberately mismatched column headers (<code>AssetSerial</code>, <code>ItemState</code>, <code>Cost</code>) against a Transform Map, then ran the same file three times to see the full lifecycle: a clean first import, a second run creating silent duplicates with no coalesce field set, and a third run — after enabling coalesce on <code>u_serial_number</code> — correctly updating existing records instead of duplicating them.</p>
+      <div class="phase-badges">
+        <span class="phase-badge">Field mapping</span>
+        <span class="phase-badge">Coalesce behaviour</span>
+      </div>
+      <div class="evidence-grid">
+        <div>
+          <div class="screenshot-thumb" onclick="openLightbox('images/Kit_Tracker_Import_Duplicates.png')" title="Click to view full size">
+            <img src="images/Kit_Tracker_Import_Duplicates.png" alt="Duplicate kit item records created by re-importing without coalesce set" />
+            <div class="screenshot-overlay">Click to expand</div>
+          </div>
+          <p class="screenshot-caption">Every serial number duplicated after a second import with no coalesce field.</p>
+        </div>
+        <div>
+          <div class="screenshot-thumb" onclick="openLightbox('images/Kit_Tracker_Import_Clean.png')" title="Click to view full size">
+            <img src="images/Kit_Tracker_Import_Clean.png" alt="Clean kit item list with no duplicates after enabling coalesce" />
+            <div class="screenshot-overlay">Click to expand</div>
+          </div>
+          <p class="screenshot-caption">Same 24 rows, third run — coalesce on serial number updates instead of duplicates.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-top">
+        <span class="phase-num">04</span>
+        <span class="phase-title">CMDB &amp; CSDM</span>
+      </div>
+      <p class="phase-desc">Browsed the native <code>cmdb_ci</code> class hierarchy (Configuration Item → Hardware → Computer → Server) to see the same extension pattern from Phase 1 applied at platform scale. Created a Business Application CI and a Server CI for Crestline, related them via <strong>Runs on::Runs</strong>, then linked an Incident to the Server CI to tie CMDB back into the ITSM tables I already work with daily.</p>
+      <div class="phase-badges">
+        <span class="phase-badge">CI Class Manager</span>
+        <span class="phase-badge">CI relationships</span>
+        <span class="phase-badge">Incident linkage</span>
+      </div>
+      <div class="screenshot-thumb" onclick="openLightbox('images/Kit_Tracker_CMDB_Relationship.png')" title="Click to view full size">
+        <img src="images/Kit_Tracker_CMDB_Relationship.png" alt="Runs on::Runs relationship between the Crestline Server and Business Application CIs" />
+        <div class="screenshot-overlay">Click to expand</div>
+      </div>
+      <p class="screenshot-caption">Crestline Kit Tracker Server related to the Business Application CI via Runs on::Runs.</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-top">
+        <span class="phase-num">05</span>
+        <span class="phase-title">Security Center &amp; Shared Responsibility Model</span>
+      </div>
+      <p class="phase-desc">Reviewed the Shared Responsibility Model conceptually — ServiceNow secures the platform (infrastructure, hosting, patching); the admin secures everything configured on top of it (ACLs, data classification, business logic, instance hardening). Then explored Security Center's live dashboard, which surfaces exactly that admin-owned half: hardening compliance score, threshold alerts, and posture recommendations.</p>
+      <div class="phase-badges">
+        <span class="phase-badge">Shared Responsibility Model</span>
+        <span class="phase-badge">Instance hardening</span>
+      </div>
+      <div class="screenshot-thumb" onclick="openLightbox('images/Kit_Tracker_Security_Center.png')" title="Click to view full size">
+        <img src="images/Kit_Tracker_Security_Center.png" alt="Security Center dashboard showing a 90% hardening compliance score" />
+        <div class="screenshot-overlay">Click to expand</div>
+      </div>
+      <p class="screenshot-caption">Security Center's posture dashboard — every metric here reflects admin-owned configuration, not platform security.</p>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <p class="section-label">Supporting documents</p>
+    <a href="crestline-brand-guidelines.html" class="btn btn-ghost"><i class="ti ti-palette"></i> View Crestline Brand Guidelines</a>
+  </section>
+
+  <footer>nathanhart.uk &nbsp;·&nbsp; Crestline Technologies — fictional company, real skills</footer>
+
+</div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">Close</span>
+    <img id="lightbox-img" src="" alt="Expanded screenshot" />
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+
+</body>
+</html>
