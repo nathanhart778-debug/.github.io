@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nathan Hart — Projects</title>
-  <meta name="description" content="ServiceNow projects built by Nathan Hart in his Personal Developer Instance — including a self-service portal, kit tracker, incident dashboard, and knowledge base." />
+  <meta name="description" content="ServiceNow projects built by Nathan Hart in his Personal Developer Instance — including a kit tracker, self-service portal, incident dashboard, and knowledge base." />
   <meta name="author" content="Nathan Hart" />
   <meta property="og:title" content="Nathan Hart — ServiceNow Projects" />
   <meta property="og:description" content="Hands-on ServiceNow projects built by Nathan Hart, Service Desk Manager and aspiring ServiceNow Administrator." />
@@ -42,11 +42,11 @@
     .nav-links a:hover, .nav-links a.active { color: var(--sn-teal); }
 
     /* HERO */
-    .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--sn-border); }
+    .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--sn-border); text-align: center; }
     .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; }
     .hero-name { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.1; color: #f0f6f4; margin-bottom: 0.6rem; }
     .hero-name em { font-style: italic; color: var(--sn-teal); }
-    .hero-subtitle { font-size: 1rem; color: var(--sn-muted); max-width: 500px; }
+    .hero-subtitle { font-size: 1rem; color: var(--sn-muted); max-width: 500px; margin: 0 auto; }
 
     /* SECTIONS */
     .section { padding: 3rem 0; border-bottom: 0.5px solid var(--sn-border); }
@@ -59,6 +59,10 @@
       border-radius: 12px; padding: 1.6rem; margin-bottom: 1.2rem;
       transition: border-color 0.2s;
     }
+    /* NOTE: do not use :last-child for margin here — cards are each wrapped in
+       their own <a>, so every card is the "only child" of its wrapper and
+       :last-child would match all of them, collapsing every gap to zero.
+       The true last card gets margin-bottom:0 via inline style instead. */
     .project-card:hover { border-color: var(--sn-teal); }
 
     .project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
@@ -144,9 +148,9 @@
   </section>
 
   <section class="section">
-    <p class="section-label">Complete &amp; in progress</p>
+    <p class="section-label">Complete & in progress</p>
 
-    <!-- PROJECT: Kit Tracker -->
+    <!-- PROJECT 1: Crestline Kit Tracker -->
     <a href="crestline-kit-tracker.html" style="text-decoration:none;display:block;">
     <div class="project-card" style="cursor:pointer;">
       <div class="project-top">
@@ -190,7 +194,7 @@
     </div>
     </a>
 
-    <!-- PROJECT: Self-Service Portal -->
+    <!-- PROJECT 2: Self-Service Portal -->
     <a href="crestline-self-service.html" style="text-decoration:none;display:block;">
     <div class="project-card" style="cursor:pointer;">
       <div class="project-top">
@@ -233,7 +237,7 @@
     </div>
     </a>
 
-    <!-- PROJECT: Incident Dashboard -->
+    <!-- PROJECT 3: Incident Dashboard -->
     <div class="project-card">
       <div class="project-top">
         <span class="project-title">Incident Management Dashboard</span>
@@ -271,11 +275,12 @@
       <div class="project-outcome">Produce a dashboard that a service desk manager could use on day one — demonstrating practical reporting skills alongside platform knowledge.</div>
     </div>
 
-    <!-- PROJECT: Knowledge Base -->
-    <div class="project-card">
+    <!-- PROJECT 4: Knowledge Base -->
+    <a href="crestline-knowledge-base.html" style="text-decoration:none;display:block;">
+    <div class="project-card" style="cursor:pointer;margin-bottom:0;">
       <div class="project-top">
         <span class="project-title">Knowledge Base</span>
-        <span class="project-status status-planned">Planned</span>
+        <span class="project-status status-complete">Complete</span>
       </div>
       <div class="project-tags">
         <span class="project-tag">Knowledge Management</span>
@@ -283,16 +288,16 @@
         <span class="project-tag">ITSM</span>
         <span class="project-tag">Workflow</span>
       </div>
-      <p class="project-desc">Setting up a structured knowledge base with categorised articles, a submission and review workflow, and a user feedback mechanism. Knowledge-centred service delivery is a core part of any mature service desk and this project will show I understand both the platform and the process.</p>
+      <p class="project-desc">Setting up a structured knowledge base with categorised articles, an approval-gated publish workflow, and a feedback mechanism that automatically opens a review task when an article is marked unhelpful. Knowledge-centred service delivery is a core part of any mature service desk, and this project shows I understand both the platform and the process.</p>
       <div class="project-sections">
         <div>
           <div class="project-section-title">What I'm building</div>
           <ul class="project-list">
             <li>Knowledge base structure and categories</li>
-            <li>Article templates for common issues</li>
+            <li>Standard article structure for content consistency</li>
             <li>Submission and approval workflow</li>
-            <li>User feedback and rating system</li>
-            <li>Integration with incident resolution</li>
+            <li>Feedback-driven review task automation</li>
+            <li>Incident linking and self-service deflection</li>
           </ul>
         </div>
         <div>
@@ -301,13 +306,17 @@
             <li>Knowledge Management module</li>
             <li>Article authoring and publishing</li>
             <li>Workflow for content governance</li>
-            <li>Linking knowledge to incidents</li>
+            <li>Flow Designer automation</li>
             <li>Self-service deflection strategy</li>
           </ul>
         </div>
       </div>
-      <div class="project-outcome">Build a working knowledge base that demonstrates understanding of knowledge-centred service delivery and its role in reducing repeat incidents.</div>
+      <div class="project-outcome complete">Build a working knowledge base that demonstrates understanding of knowledge-centred service delivery and its role in reducing repeat incidents.</div>
+      <div style="margin-top:1.2rem;padding-top:1.2rem;border-top:0.5px solid var(--sn-border);display:flex;justify-content:flex-end;">
+        <span style="display:inline-flex;align-items:center;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;color:var(--sn-teal);">View project</span>
+      </div>
     </div>
+    </a>
 
   </section>
 
