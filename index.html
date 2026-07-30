@@ -3,194 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nathan Hart — ServiceNow Administrator</title>
-  <meta name="description" content="Portfolio of Nathan Hart — Service Desk Manager at Cox Automotive UK and aspiring ServiceNow Administrator. Credentials, projects, and CV." />
-  <meta name="keywords" content="ServiceNow Administrator, ServiceNow, ITSM, Service Desk Manager, Cox Automotive, Flow Designer, Platform Analytics, UK" />
+  <title>Nathan Hart — IT Professional</title>
+  <meta name="description" content="Nathan Hart — IT Professional based in the UK. View projects and CV." />
+  <meta name="keywords" content="ServiceNow Administrator, ServiceNow, ITSM, IT Professional, Flow Designer, Platform Analytics, UK" />
   <meta name="author" content="Nathan Hart" />
-  <meta property="og:title" content="Nathan Hart — ServiceNow Administrator" />
-  <meta property="og:description" content="Service Desk Manager and aspiring ServiceNow Administrator based in the UK. View credentials, projects and CV." />
+  <meta property="og:title" content="Nathan Hart — IT Professional" />
+  <meta property="og:description" content="IT Professional based in the UK, building toward ServiceNow Administrator certification. View credentials, projects and CV." />
   <meta property="og:url" content="https://nathanhart.uk" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --sn-dark: #0b1120;
-      --sn-navy: #0e1e3a;
-      --sn-teal: #00c8a0;
-      --sn-teal-dim: #00a884;
-      --sn-muted: #7a9ab0;
-      --sn-border: rgba(0, 200, 160, 0.18);
-      --sn-card: rgba(14, 30, 58, 0.7);
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --sn-dark:#0b1120; --sn-teal:#00c8a0; --sn-teal-dim:#00a884;
+      --sn-muted:#7a9ab0; --sn-border:rgba(0,200,160,0.18); --sn-card:rgba(14,30,58,0.7);
     }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--sn-dark);
-      color: #e8f0ee;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-    .portfolio { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 4rem; }
-
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 0;
-      border-bottom: 0.5px solid var(--sn-border);
-      position: sticky; top: 0;
-      background: rgba(11, 17, 32, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-    }
-    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--sn-teal); }
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a {
-      font-size: 0.78rem; color: var(--sn-muted); text-decoration: none;
-      letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--sn-teal); }
-
-    .hero { padding: 5rem 0 4rem; border-bottom: 0.5px solid var(--sn-border); text-align: center; }
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem;
-    }
-    .hero-name {
-      font-family: 'DM Serif Display', serif; font-size: 3.4rem;
-      line-height: 1.1; color: #f0f6f4; margin-bottom: 0.8rem;
-    }
-    .hero-name em { font-style: italic; color: var(--sn-teal); }
-    .hero-subtitle { font-size: 1rem; color: var(--sn-muted); max-width: 480px; margin: 0 auto 2rem; }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; justify-content: center; }
-    .badge {
-      font-family: 'DM Mono', monospace; font-size: 0.7rem;
-      padding: 4px 14px; border-radius: 20px;
-      border: 0.5px solid var(--sn-teal); color: var(--sn-teal); letter-spacing: 0.04em;
-    }
-    .badge.filled { background: var(--sn-teal); color: var(--sn-dark); }
-    .badge.amber { border-color: #f0a050; color: #f0a050; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 22px; font-family: 'Outfit', sans-serif;
-      font-size: 0.85rem; font-weight: 500; border-radius: 6px;
-      text-decoration: none; cursor: pointer; transition: background 0.2s, color 0.2s;
-    }
-    .btn-primary { background: var(--sn-teal); color: var(--sn-dark); border: none; }
-    .btn-primary:hover { background: var(--sn-teal-dim); }
-    .btn-ghost { background: transparent; color: var(--sn-teal); border: 0.5px solid var(--sn-teal); }
-    .btn-ghost:hover { background: rgba(0, 200, 160, 0.08); }
-
-    .section { padding: 3rem 0; border-bottom: 0.5px solid var(--sn-border); }
-    .section-label {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      color: var(--sn-teal); letter-spacing: 0.14em; text-transform: uppercase;
-      margin-bottom: 1.6rem; display: flex; align-items: center; gap: 10px;
-    }
-    .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--sn-border); }
-
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
-    .cert-card {
-      background: var(--sn-card); border: 0.5px solid var(--sn-border);
-      border-radius: 10px; padding: 1.1rem; transition: border-color 0.2s;
-    }
-    .cert-card:hover { border-color: var(--sn-teal); }
-    .cert-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
-    .cert-title { font-size: 0.85rem; font-weight: 500; color: #e8f0ee; margin-bottom: 0.3rem; }
-    .cert-status { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.05em; }
-    .cert-status.earned { color: var(--sn-teal); }
-    .cert-status.progress { color: #f0a050; }
-
-    .badges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
-    .badge-card {
-      background: var(--sn-card); border: 0.5px solid var(--sn-border);
-      border-radius: 8px; padding: 0.8rem 1rem; transition: border-color 0.2s;
-    }
-    .badge-card:hover { border-color: var(--sn-teal); }
-    .badge-name { font-size: 0.8rem; color: #c8ddd6; margin-bottom: 0.25rem; font-weight: 500; }
-    .badge-date { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--sn-muted); }
-
-    .journey-bar {
-      background: var(--sn-card); border: 0.5px solid var(--sn-border);
-      border-radius: 10px; padding: 1.4rem; margin-bottom: 1.5rem;
-    }
-    .journey-title { font-size: 0.85rem; font-weight: 500; color: #e8f0ee; margin-bottom: 1rem; }
-    .journey-steps { display: flex; align-items: center; gap: 0; }
-    .journey-step { flex: 1; text-align: center; }
-    .journey-step-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.04em; margin-top: 0.4rem; }
-    .journey-step-label.done { color: var(--sn-teal); }
-    .journey-step-label.active { color: #f0a050; }
-    .journey-step-label.next { color: var(--sn-muted); }
-    .step-dot { width: 12px; height: 12px; border-radius: 50%; margin: 0 auto; }
-    .step-dot.done { background: var(--sn-teal); }
-    .step-dot.active { background: #f0a050; box-shadow: 0 0 0 3px rgba(240,160,80,0.2); }
-    .step-dot.next { background: var(--sn-muted); opacity: 0.4; }
-    .step-line { height: 1px; flex: 0.3; background: var(--sn-border); margin-bottom: 1.2rem; }
-    .step-line.done { background: var(--sn-teal); }
-
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-    .skill-item {
-      background: var(--sn-card); border: 0.5px solid var(--sn-border);
-      border-radius: 8px; padding: 0.8rem 1rem;
-    }
-    .skill-name { font-size: 0.8rem; color: #c8ddd6; margin-bottom: 0.5rem; }
-    .skill-bar { height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; }
-    .skill-fill { height: 100%; background: var(--sn-teal); border-radius: 2px; }
-
-    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 1.5rem; }
-    .stat-card {
-      background: var(--sn-card); border: 0.5px solid var(--sn-border);
-      border-radius: 8px; padding: 1rem; text-align: center;
-    }
-    .stat-number { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--sn-teal); line-height: 1; margin-bottom: 0.3rem; }
-    .stat-label { font-size: 0.75rem; color: var(--sn-muted); }
-
-    .about-text { font-size: 0.92rem; color: #a8c4bc; line-height: 1.85; }
-    .about-text strong { color: #e8f0ee; font-weight: 500; }
-    .about-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
-    .about-award-card {
-      background: var(--sn-card); border: 0.5px solid var(--sn-border);
-      border-radius: 10px; padding: 1.1rem 1.2rem; margin-bottom: 12px;
-    }
-    .about-award-card:last-child { margin-bottom: 0; }
-    .about-award-title { font-size: 0.88rem; font-weight: 500; color: #f0f6f4; margin-bottom: 0.2rem; }
-    .about-award-meta { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-teal); letter-spacing: 0.05em; }
-    .about-col-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sn-teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.9rem; }
-    @media (max-width: 600px) { .about-cols { grid-template-columns: 1fr; } }
-
-    .contact-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-    .contact-link {
-      display: flex; align-items: center; gap: 8px;
-      padding: 10px 18px; background: var(--sn-card);
-      border: 0.5px solid var(--sn-border); border-radius: 8px;
-      color: #c8ddd6; font-size: 0.82rem; text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .contact-link:hover { border-color: var(--sn-teal); color: var(--sn-teal); }
-    .contact-link i { font-size: 16px; }
-
-    footer {
-      padding: 2rem 0 0; text-align: center;
-      font-family: 'DM Mono', monospace; font-size: 0.65rem;
-      color: var(--sn-muted); letter-spacing: 0.07em; text-transform: uppercase;
+    html,body{height:100%;}
+    body{
+      background:var(--sn-dark); color:#e8f0ee; font-family:'Outfit',sans-serif; font-weight:300;
+      display:flex; flex-direction:column;
     }
 
-    @media (max-width: 600px) {
-      .hero-name { font-size: 2.2rem; }
-      .nav-links { gap: 1rem; }
-      .stat-row { grid-template-columns: repeat(3, 1fr); }
+    /* NAV — matches other pages */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.2rem 1.5rem; border-bottom:0.5px solid var(--sn-border);
+      max-width:1080px; width:100%; margin:0 auto;
+    }
+    .nav-logo{ font-family:'DM Serif Display', serif; font-size:1.1rem; color:var(--sn-teal); text-decoration:none; }
+    .nav-links{ display:flex; gap:1.5rem; }
+    .nav-links a{
+      font-size:0.78rem; color:var(--sn-muted); text-decoration:none;
+      letter-spacing:0.07em; text-transform:uppercase; transition:color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active{ color:var(--sn-teal); }
+
+    .wrap{
+      flex:1; display:grid; grid-template-columns:1fr 1fr; align-items:center;
+      max-width:1080px; width:100%; margin:0 auto; padding:2rem 2rem; gap:2rem;
+    }
+
+    .left{ max-width:460px; }
+
+    .hero-eyebrow{
+      font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--sn-teal);
+      letter-spacing:0.14em; text-transform:uppercase; margin-bottom:1rem;
+      opacity:0; transform:translateY(10px);
+    }
+    .hero-name{
+      font-family:'DM Serif Display', serif; font-size:3.2rem; line-height:1.1;
+      color:#f0f6f4; margin-bottom:2rem;
+      opacity:0; transform:translateY(14px);
+    }
+    .cta-row{ display:flex; gap:0.75rem; opacity:0; transform:translateY(10px); }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding:11px 24px;
+      font-family:'Outfit',sans-serif; font-size:0.85rem; font-weight:500;
+      border-radius:6px; text-decoration:none; cursor:pointer;
+      transition:background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-primary{ background:var(--sn-teal); color:var(--sn-dark); border:none; }
+    .btn-primary:hover{ background:var(--sn-teal-dim); }
+    .btn-ghost{ background:transparent; color:var(--sn-teal); border:0.5px solid var(--sn-teal); }
+    .btn-ghost:hover{ background:rgba(0,200,160,0.08); }
+
+    .reveal{ animation: fadeRise 0.7s ease forwards; }
+    @keyframes fadeRise{ to{ opacity:1; transform:translateY(0); } }
+
+    /* right side: animated hexagon / network graphic */
+    .right{ display:flex; align-items:center; justify-content:center; position:relative; }
+    .right svg{ width:100%; max-width:420px; height:auto; overflow:visible; }
+
+    .draw{
+      fill:none; stroke:var(--sn-teal); stroke-width:1.4;
+      stroke-dasharray:1; stroke-dashoffset:1; opacity:0.9;
+    }
+    .node{ fill:var(--sn-dark); stroke:var(--sn-teal); stroke-width:2.4; opacity:0; }
+    .node-fill{ fill:var(--sn-teal); opacity:0; }
+
+    footer{
+      padding:1.5rem 0; text-align:center;
+      font-family:'DM Mono',monospace; font-size:0.65rem;
+      color:var(--sn-muted); letter-spacing:0.07em; text-transform:uppercase;
+      border-top:0.5px solid var(--sn-border);
+    }
+
+    @media (max-width:820px){
+      .wrap{ grid-template-columns:1fr; padding:3rem 1.5rem; text-align:left; }
+      .right{ order:-1; margin-bottom:1rem; }
+      .right svg{ max-width:260px; }
+      .hero-name{ font-size:2.4rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal, .hero-eyebrow, .hero-name, .cta-row{
+        opacity:1 !important; transform:none !important; animation:none !important;
+      }
+      .draw{ stroke-dashoffset:0 !important; }
+      .node, .node-fill{ opacity:1 !important; }
     }
   </style>
 </head>
 <body>
-<div class="portfolio">
 
   <nav class="nav">
-    <span class="nav-logo">Nathan Hart</span>
+    <a href="index.html" class="nav-logo">Nathan Hart</a>
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="projects.html">Projects</a>
@@ -198,122 +118,72 @@
     </div>
   </nav>
 
-  <section class="hero">
-    <p class="hero-eyebrow">ServiceNow Administrator</p>
-    <h1 class="hero-name">Building platforms<br>that <em>drive change.</em></h1>
-    <p class="hero-subtitle">ServiceNow professional at Cox Automotive UK Ltd, focused on platform administration, automation, and the AI System Administrator career path.</p>
-    <div class="cta-row">
-      <a href="#contact" class="btn btn-ghost"> Get in touch</a>
-      <a href="projects.html" class="btn btn-ghost"> View Projects</a>
-      <a href="cv.html" class="btn btn-ghost"> View CV</a>
-    </div>
-  </section>
-
-  <section class="section">
-    <p class="section-label">Achievement summary</p>
-    <div class="stat-row" style="grid-template-columns: repeat(4, 1fr);">
-      <div class="stat-card">
-        <div class="stat-number">10</div>
-        <div class="stat-label">Total Qualifications</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">10</div>
-        <div class="stat-label">ServiceNow Badges</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">2</div>
-        <div class="stat-label">Awards</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">13+</div>
-        <div class="stat-label">Years in IT</div>
+  <div class="wrap">
+    <div class="left">
+      <p class="hero-eyebrow" id="eyebrow">IT Professional</p>
+      <h1 class="hero-name" id="heroName">Nathan Hart</h1>
+      <div class="cta-row" id="ctaRow">
+        <a href="cv.html" class="btn btn-primary">View CV</a>
+        <a href="projects.html" class="btn btn-ghost">View Projects</a>
       </div>
     </div>
 
-    <div class="journey-bar">
-      <div class="journey-title">AI System Administrator career journey</div>
-      <div class="journey-steps">
-        <div class="journey-step">
-          <div class="step-dot done"></div>
-          <div class="journey-step-label done">Associate ✓</div>
-        </div>
-        <div class="step-line done"></div>
-        <div class="journey-step">
-          <div class="step-dot active"></div>
-          <div class="journey-step-label active">Professional ↻</div>
-        </div>
-        <div class="step-line"></div>
-        <div class="journey-step">
-          <div class="step-dot next"></div>
-          <div class="journey-step-label next">Expert</div>
-        </div>
-      </div>
+    <div class="right">
+      <svg viewBox="0 0 300 300" id="graphic">
+        <polygon class="draw" id="hexOuter" points="150,15 265,80 265,220 150,285 35,220 35,80" />
+        <line class="draw" id="lineA" x1="150" y1="70" x2="215" y2="180" />
+        <line class="draw" id="lineB" x1="215" y1="180" x2="85" y2="180" />
+        <line class="draw" id="lineC" x1="85" y1="180" x2="150" y2="70" />
+        <line class="draw" id="lineD" x1="150" y1="70" x2="150" y2="180" />
+
+        <circle class="node" id="nodeTop" cx="150" cy="70" r="7" />
+        <circle class="node" id="nodeRight" cx="215" cy="180" r="7" />
+        <circle class="node" id="nodeLeft" cx="85" cy="180" r="7" />
+        <circle class="node-fill" id="nodeCenter" cx="150" cy="180" r="4" />
+      </svg>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="credentials">
-    <p class="section-label">Credentials</p>
-    <div class="cert-grid">
-      <div class="cert-card">
-        <div class="cert-title">Associate AI System Administrator</div>
-        <div class="cert-status earned">✓ Completed — Apr 2026</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-title">Professional AI System Administrator</div>
-        <div class="cert-status progress">In progress</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-title">Certified System Administrator (CSA)</div>
-        <div class="cert-status progress">Next target</div>
-      </div>
-    </div>
-  </section>
+  <footer>nathanhart.uk &nbsp;·&nbsp; IT Professional &nbsp;·&nbsp; UK</footer>
 
-  <section class="section" id="skills">
-    <p class="section-label">Skills</p>
-    <div class="skills-grid">
-      <div class="skill-item"><div class="skill-name">Flow Designer</div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Flows &amp; State Flows</div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Triggers</div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Platform Analytics</div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Now Intelligence</div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
-      <div class="skill-item"><div class="skill-name">AI Agents</div><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
-      <div class="skill-item"><div class="skill-name">ServiceNow AI Platform</div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Data Privacy</div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
-    </div>
-  </section>
+  <script>
+    function setPathLength(el){
+      const len = el.getTotalLength();
+      el.style.strokeDasharray = len;
+      el.style.strokeDashoffset = len;
+    }
+    document.querySelectorAll('.draw').forEach(setPathLength);
 
-  <section class="section" id="about">
-    <p class="section-label">About</p>
-    <div class="about-cols">
-      <div>
-        <div class="about-col-label">Background</div>
-        <p class="about-text">I'm the <strong>Service Desk Manager</strong> at <strong>Cox Automotive UK Ltd</strong>, where I oversee day-to-day IT service operations. Outside of work, I'm dedicating my personal time to building expertise in ServiceNow — currently progressing through the <strong>AI System Administrator career journey</strong>, having completed the Associate level and working towards Professional.</p>
-      </div>
-      <div>
-        <div class="about-col-label">Awards</div>
-        <div class="about-award-card">
-          <div class="about-award-title">Bringing Out the Best in Everyone</div>
-          <div class="about-award-meta">Cox Automotive Autos · 2024</div>
-        </div>
-        <div class="about-award-card">
-          <div class="about-award-title">Mentor of the Year</div>
-          <div class="about-award-meta">Cox Automotive Cali Academies · 2024</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    function animateDraw(el, delay, duration){
+      setTimeout(() => {
+        el.style.transition = `stroke-dashoffset ${duration}ms ease`;
+        el.style.strokeDashoffset = 0;
+      }, delay);
+    }
 
-  <section class="section" id="contact" style="text-align:center;">
-    <p class="section-label" style="justify-content:center;">Contact</p>
-    <div class="contact-row">
-      <a href="mailto:nathanhart778@gmail.com" class="contact-link"><i class="ti ti-mail"></i> nathanhart778@gmail.com</a>
-      <a href="https://learning.servicenow.com/lxp?id=nl_public&user=nathanhart272838" class="contact-link"><i class="ti ti-code"></i> SN Learning Profile</a>
-    </div>
-  </section>
+    animateDraw(document.getElementById('hexOuter'), 150, 750);
+    animateDraw(document.getElementById('lineA'), 850, 300);
+    animateDraw(document.getElementById('lineB'), 1000, 300);
+    animateDraw(document.getElementById('lineC'), 1150, 300);
+    animateDraw(document.getElementById('lineD'), 1300, 300);
 
-  <footer>nathanhart.uk &nbsp;·&nbsp; ServiceNow professional &nbsp;·&nbsp; Cox Automotive UK</footer>
+    ['nodeTop','nodeRight','nodeLeft'].forEach((id, idx) => {
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        el.style.transition = 'opacity 0.3s ease';
+        el.style.opacity = 1;
+      }, 1500 + idx * 100);
+    });
+    setTimeout(() => {
+      const c = document.getElementById('nodeCenter');
+      c.style.transition = 'opacity 0.3s ease';
+      c.style.opacity = 1;
+    }, 1850);
 
-</div>
+    setTimeout(() => document.getElementById('eyebrow').classList.add('reveal'), 200);
+    setTimeout(() => document.getElementById('heroName').classList.add('reveal'), 380);
+    setTimeout(() => document.getElementById('ctaRow').classList.add('reveal'), 560);
+  </script>
+
 </body>
 </html>
